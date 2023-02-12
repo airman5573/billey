@@ -252,7 +252,16 @@
 
             $el.trigger("BilleyQueryEnd", [$el, $newItems]);
 
-            handlerQueryEnd(true);
+            var foundPosts = getQuery("found_posts");
+            var paged = getQueryVars("paged");
+            var numberPages = getQueryVars("posts_per_page");
+
+            if (foundPosts <= paged * numberPages) {
+              $el.children(".billey-grid-messages").show(1);
+              setTimeout(function () {
+                $el.children(".billey-grid-messages").remove();
+              }, 2000);
+            }
 
             isQuerying = false;
           },
