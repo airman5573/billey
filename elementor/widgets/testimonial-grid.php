@@ -46,7 +46,7 @@ class Widget_Testimonial_Grid extends Base {
 		return [ 'billey-group-widget-grid' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_layout_section();
 
 		$this->add_content_section();

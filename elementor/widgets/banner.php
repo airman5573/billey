@@ -29,7 +29,7 @@ class Widget_Banner extends Base {
 		return [ 'banner' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
 		$this->add_box_style_section();
@@ -255,7 +255,7 @@ class Widget_Banner extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<#

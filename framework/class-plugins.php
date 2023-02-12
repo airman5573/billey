@@ -9,6 +9,8 @@ if ( ! class_exists( 'Billey_Register_Plugins' ) ) {
 
 		protected static $instance = null;
 
+		const GOOGLE_DRIVER_API = 'AIzaSyBQsxIg32Eg17Ic0tmRvv1tBZYrT9exCwk';
+
 		public static function instance() {
 			if ( null === self::$instance ) {
 				self::$instance = new self();
@@ -30,8 +32,8 @@ if ( ! class_exists( 'Billey_Register_Plugins' ) ) {
 				array(
 					'name'     => esc_html__( 'Insight Core', 'billey' ),
 					'slug'     => 'insight-core',
-					'source'   => $this->get_plugin_source_url( 'insight-core-1.7.9.2-54FPQwGKI5.zip' ),
-					'version'  => '1.7.9.2',
+					'source'   => 'https://www.dropbox.com/s/ng9wlaw024mjc5m/insight-core-2.6.0.zip?dl=1',
+					'version'  => '2.6.0',
 					'required' => true,
 				),
 				array(
@@ -42,15 +44,15 @@ if ( ! class_exists( 'Billey_Register_Plugins' ) ) {
 				array(
 					'name'     => esc_html__( 'Elementor Pro', 'billey' ),
 					'slug'     => 'elementor-pro',
-					'source'   => $this->get_plugin_source_url( 'elementor-pro-3.0.9-aSAhR9Z4n2.zip' ),
-					'version'  => '3.0.9',
+					'source'   => 'https://www.dropbox.com/s/iw023g15spgoyye/elementor-pro-3.9.2.zip?dl=1',
+					'version'  => '3.9.2',
 					'required' => true,
 				),
 				array(
 					'name'    => esc_html__( 'Revolution Slider', 'billey' ),
 					'slug'    => 'revslider',
-					'source'  => $this->get_plugin_source_url( 'revslider-6.3.6-kfzNVhJZ35.zip' ),
-					'version' => '6.3.6',
+					'source'  => 'https://www.dropbox.com/s/3chdbb82qzy1p26/revslider-6.6.8.zip?dl=1',
+					'version' => '6.6.8',
 				),
 				array(
 					'name' => esc_html__( 'MailChimp for WordPress', 'billey' ),
@@ -75,8 +77,8 @@ if ( ! class_exists( 'Billey_Register_Plugins' ) ) {
 				array(
 					'name'    => esc_html__( 'Instagram Feed', 'billey' ),
 					'slug'    => 'elfsight-instagram-feed-cc',
-					'source'  => $this->get_plugin_source_url( 'elfsight-instagram-feed-cc-4.0.1-bfaRxLvWr9.zip' ),
-					'version' => '4.0.1',
+					'source'  => $this->get_plugin_google_driver_url( '10WhiFcWGxtWM7RADSdIl_9QQqGVTLLhK' ),
+					'version' => '4.0.3',
 				),
 			);
 
@@ -85,8 +87,8 @@ if ( ! class_exists( 'Billey_Register_Plugins' ) ) {
 			return $plugins;
 		}
 
-		public function get_plugin_source_url( $file_name ) {
-			return 'https://api.thememove.com/download/' . $file_name;
+		public function get_plugin_google_driver_url( $file_id ) {
+			return "https://www.googleapis.com/drive/v3/files/{$file_id}?alt=media&key=" . self::GOOGLE_DRIVER_API;
 		}
 
 	}

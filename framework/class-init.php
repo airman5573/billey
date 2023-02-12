@@ -137,7 +137,7 @@ class Billey_Init {
 		$info['icon']    = BILLEY_THEME_URI . '/assets/admin/images/logo.png';
 		$info['tf']      = 'https://themeforest.net/item/billey-creative-multipurpose-wordpress-theme/25656507';
 		$info['docs']    = 'https://document.thememove.com/billey';
-		$info['child']   = 'https://api.thememove.com/update/billey/billey-child.zip';
+		$info['child']   = 'https://www.dropbox.com/s/3rkpow9pgvhq5c6/billey-child.zip?dl=1';
 		$info['update']  = 'https://api.thememove.com/update/billey';
 		$info['api']     = 'https://api.thememove.com/update/billey';
 		$info['support'] = 'https://thememove.ticksy.com/';

@@ -159,7 +159,7 @@
 				var oldST = 0;
 
 				// On scroll.
-				$( window ).scroll( function() {
+				$( window ).on( 'scroll', function() {
 					var st = $( this ).scrollTop();
 					// Scroll down & in view.
 					if ( st > oldST && st >= finalOffset ) {

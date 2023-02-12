@@ -12,11 +12,11 @@
 			var $element = $scope.find( '.tm-slider-widget' );
 
 			if ( $scope.hasClass( 'billey-swiper-linked-yes' ) ) {
-				var thumbsSlider = $element.filter( '.billey-thumbs-swiper' ).BilleySwiper({
+				var thumbsSlider = $element.filter( '.billey-thumbs-swiper' ).BilleySwiper( {
 					thumbs: {
 						swiper: mainSlider,
 					},
-				});
+				} );
 				var mainSlider = $element.filter( '.billey-main-swiper' ).BilleySwiper( {
 					thumbs: {
 						swiper: thumbsSlider,
@@ -30,17 +30,28 @@
 		var SwiperBackgroundHandler = function( $scope, $ ) {
 			var $element = $scope.find( '.tm-slider-widget' );
 
-			$element.BilleySwiper();
+			var $swiper = $element.BilleySwiper();
 
 			var bgList = $element.find( '.slider-bg-list' );
-			var bgItems = bgList.children( '.slide-bg' );
+
+			$swiper.on( 'slideChangeTransitionEnd', function() {
+				var index = $swiper.activeIndex;
+				var slides = $swiper.$wrapperEl.find( '.swiper-slide' );
+				var currentSlide = slides.eq( index );
+
+				$( currentSlide ).siblings().removeClass( 'swiper-slide-hovered' );
+				$( currentSlide ).addClass( 'swiper-slide-hovered' );
+
+				handlerSliderModernBG( $swiper.realIndex );
+			} );
 
 			$element.find( '.swiper-slide' ).hoverIntent( function() {
 				if ( $( this ).hasClass( 'swiper-slide-hovered' ) ) {
 					return;
 				}
 
-				var index = $( this ).index();
+				// Get real index both case of loop or not.
+				var index = typeof  $( this ).data( 'swiper-slide-index' ) !== 'undefined' ? $( this ).data( 'swiper-slide-index' ) : $( this ).index();
 
 				$( this ).siblings().removeClass( 'swiper-slide-hovered' );
 				$( this ).addClass( 'swiper-slide-hovered' );
@@ -52,8 +63,6 @@
 			handlerSliderModernBG( 0 );
 
 			function handlerSliderModernBG( index ) {
-				$element.find( '.swiper-slide' ).eq( index ).addClass( 'swiper-slide-hovered' );
-
 				var current = bgList.children().eq( index );
 
 				current.siblings().removeClass( 'current' );

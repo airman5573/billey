@@ -33,7 +33,11 @@ jQuery( document ).ready( function( $ ) {
 	scrollToTop();
 
 	// Remove empty p tags form wpautop.
-	$( 'p:empty' ).remove();
+	$( 'p:empty' ).each( function() {
+		if ( 0 >= this.attributes.length ) {
+			$( this ).remove();
+		}
+	} );
 
 	initSliders();
 	initGridMainQuery();
@@ -241,8 +245,10 @@ jQuery( document ).ready( function( $ ) {
 
 		// Add offset of admin bar when viewport min-width 600.
 		if ( windowWidth > 600 ) {
-			var adminBarHeight = $( '#wpadminbar' ).height();
-			smoothScrollOffset += adminBarHeight;
+			var adminBar = $( '#wpadminbar' );
+			if ( adminBar.length > 0 ) {
+				smoothScrollOffset += parseInt( adminBar.height() );
+			}
 		}
 
 		if ( smoothScrollOffset > 0 ) {
@@ -343,7 +349,7 @@ jQuery( document ).ready( function( $ ) {
 		var $scrollUp = $( '#page-scroll-up' );
 		var lastScrollTop = 0;
 
-		$window.scroll( function() {
+		$window.on( 'scroll', function() {
 			var st = $( this ).scrollTop();
 			if ( st > lastScrollTop ) {
 				$scrollUp.removeClass( 'show' );

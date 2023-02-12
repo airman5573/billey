@@ -100,27 +100,21 @@ if ( ! class_exists( 'Billey_Customize' ) ) {
 		}
 
 		function add_custom_font( $fonts ) {
-			$fonts['CerebriSans'] = array(
-				'label'    => 'CerebriSans',
+			$fonts['Satoshi'] = array(
+				'label'    => 'Satoshi',
 				'variants' => array(
-					200,
-					'200italic',
 					300,
 					'300italic',
 					'regular',
 					'italic',
 					500,
 					'500italic',
-					600,
-					'600italic',
 					700,
 					'700italic',
-					800,
-					'800italic',
 					900,
 					'900italic',
 				),
-				'stack'    => 'CerebriSans, sans-serif',
+				'stack'    => 'Satoshi, sans-serif',
 			);
 
 			$fonts['Futura'] = array(
@@ -150,7 +144,7 @@ if ( ! class_exists( 'Billey_Customize' ) ) {
 				if ( is_array( $value ) && isset( $value['font-family'] ) && $value['font-family'] !== '' ) {
 					switch ( $value['font-family'] ) {
 						case Billey::PRIMARY_FONT:
-							wp_enqueue_style( 'cerebri-sans-font', BILLEY_THEME_URI . '/assets/fonts/cerebri-sans/cerebri-sans.css', null, null );
+							wp_enqueue_style( 'font-satoshi', BILLEY_THEME_URI . '/assets/fonts/satoshi/font-satoshi.min.css' );
 							break;
 
 						case Billey::SECONDARY_FONT:
@@ -254,7 +248,7 @@ if ( ! class_exists( 'Billey_Customize' ) ) {
 		 *
 		 * @return int $priority
 		 */
-		function group_field_header_button( $header_style = '01', $prefix, $priority, $section, $args = array() ) {
+		function group_field_header_button( $header_style, $prefix, $priority, $section, $args = array() ) {
 			$defaults = [
 				'text'    => '',
 				'link'    => '',

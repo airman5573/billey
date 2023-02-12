@@ -33,7 +33,7 @@ class Widget_Image_Gallery extends Base {
 		return [ 'billey-group-widget-grid' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
 		$this->add_layout_section();

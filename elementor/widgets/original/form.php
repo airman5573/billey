@@ -3,7 +3,7 @@
 namespace Billey_Elementor;
 
 use Elementor\Controls_Manager;
-use Elementor\Controls_Stack;
+use Elementor\Core\Breakpoints\Manager as Breakpoints_Manager;
 use Elementor\Group_Control_Box_Shadow;
 
 defined( 'ABSPATH' ) || exit;
@@ -179,12 +179,12 @@ class Modify_Widget_Form extends Modify_Base {
 				'button_width' => 'custom',
 			],
 			'device_args' => [
-				Controls_Stack::RESPONSIVE_TABLET => [
+				Breakpoints_Manager::BREAKPOINT_KEY_TABLET => [
 					'condition' => [
 						'button_width_tablet' => [ 'custom' ],
 					],
 				],
-				Controls_Stack::RESPONSIVE_MOBILE => [
+				Breakpoints_Manager::BREAKPOINT_KEY_MOBILE => [
 					'condition' => [
 						'button_width_mobile' => [ 'custom' ],
 					],

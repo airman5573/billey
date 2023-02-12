@@ -26,7 +26,7 @@ class Widget_Gradation extends Base {
 		return [ 'gradation', 'step' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'layout_section', [
 			'label' => esc_html__( 'Layout', 'billey' ),
 		] );

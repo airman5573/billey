@@ -10,7 +10,7 @@ abstract class Grid_Base extends Base {
 
 	abstract protected function print_grid_items( array $settings );
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'grid_options_section', [
 			'label' => esc_html__( 'Grid Options', 'billey' ),
 		] );

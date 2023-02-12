@@ -67,15 +67,15 @@ class Control_Init {
 	 */
 	public function init_controls( $controls_manager ) {
 		// Include controls files.
-		// require_once BILLEY_ELEMENTOR_DIR . '/controls/autocomplete.php';
+		require_once BILLEY_ELEMENTOR_DIR . '/controls/autocomplete.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/controls/choose2.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/controls/group-control-text-gradient.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/controls/group-control-text-stroke.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/controls/group-control-advanced-border.php';
 
 		// Normal Control.
-		// $controls_manager->register_control( 'autocomplete', new Control_Autocomplete() );
-		$controls_manager->register_control( 'choose2', new Control_Choose2() );
+		$controls_manager->register( new Control_Autocomplete() );
+		$controls_manager->register( new Control_Choose2() );
 
 		// Group Control.
 		$controls_manager->add_group_control( Group_Control_Text_Gradient::get_type(), new Group_Control_Text_Gradient() );

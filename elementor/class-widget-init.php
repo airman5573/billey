@@ -2,8 +2,6 @@
 
 namespace Billey_Elementor;
 
-use Elementor\Plugin;
-
 defined( 'ABSPATH' ) || exit;
 
 class Widget_Init {
@@ -22,8 +20,8 @@ class Widget_Init {
 		add_action( 'elementor/elements/categories_registered', [ $this, 'add_elementor_widget_categories' ] );
 
 		// Registered Widgets.
-		add_action( 'elementor/widgets/widgets_registered', [ $this, 'init_widgets' ] );
-		//add_action( 'elementor/widgets/widgets_registered', [ $this, 'remove_unwanted_widgets' ], 15 );
+		add_action( 'elementor/widgets/register', [ $this, 'init_widgets' ] );
+		//add_action( 'elementor/widgets/register', [ $this, 'remove_unwanted_widgets' ], 15 );
 
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'after_register_scripts' ] );
 		add_action( 'elementor/frontend/after_register_styles', [ $this, 'after_register_styles' ] );
@@ -147,14 +145,16 @@ class Widget_Init {
 	 *
 	 * Include widgets files and register them
 	 *
+	 * @param \Elementor\Widgets_Manager $widget_manager
+	 *
 	 * @since  1.0.0
 	 *
 	 * @access public
+	 * @throws \Exception
 	 */
-	public function init_widgets() {
+	public function init_widgets( $widget_manager ) {
 
 		// Include Widget files.
-		require_once BILLEY_ELEMENTOR_DIR . '/module-query.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/base.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/posts/posts-base.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/carousel/carousel-base.php';
@@ -188,6 +188,7 @@ class Widget_Init {
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/full-page.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/testimonial-grid.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/portfolio-details.php';
+		require_once BILLEY_ELEMENTOR_DIR . '/widgets/typed-headline.php';
 
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/grid/grid-base.php';
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/grid/static-grid.php';
@@ -215,51 +216,52 @@ class Widget_Init {
 		require_once BILLEY_ELEMENTOR_DIR . '/widgets/chart/pie-chart.php';
 
 		// Register Widgets.
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Accordion() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Tabs() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Button() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Client_Logo() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Circle_Progress_Chart() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Google_Map() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Heading() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Icon() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Icon_Box() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Image_Box() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Image_Layers() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Image_Gallery() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Image_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Gif_Player() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Banner() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Modern_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Modern_Slider() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Modern_Background_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Flip_Box() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Blog() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Portfolio() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Portfolio_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Portfolio_Details() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Case_Study_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Attribute_List() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_List() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Gradation() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Pricing_Table() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Twitter() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Team_Member() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Team_Member_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Testimonial_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Testimonial_Grid() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Social_Networks() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Popup_Video() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Separator() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Table() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Full_Page() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_View_Demo() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Bar_Chart() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Line_Chart() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Pie_Chart() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Shapes() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Running_campaigns_Carousel() );
-		Plugin::instance()->widgets_manager->register_widget_type( new Widget_Image_Box_Carousel() );
+		$widget_manager->register( new Widget_Accordion() );
+		$widget_manager->register( new Widget_Tabs() );
+		$widget_manager->register( new Widget_Button() );
+		$widget_manager->register( new Widget_Client_Logo() );
+		$widget_manager->register( new Widget_Circle_Progress_Chart() );
+		$widget_manager->register( new Widget_Google_Map() );
+		$widget_manager->register( new Widget_Heading() );
+		$widget_manager->register( new Widget_Typed_Headline() );
+		$widget_manager->register( new Widget_Icon() );
+		$widget_manager->register( new Widget_Icon_Box() );
+		$widget_manager->register( new Widget_Image_Box() );
+		$widget_manager->register( new Widget_Image_Layers() );
+		$widget_manager->register( new Widget_Image_Gallery() );
+		$widget_manager->register( new Widget_Image_Carousel() );
+		$widget_manager->register( new Widget_Gif_Player() );
+		$widget_manager->register( new Widget_Banner() );
+		$widget_manager->register( new Widget_Modern_Carousel() );
+		$widget_manager->register( new Widget_Modern_Slider() );
+		$widget_manager->register( new Widget_Modern_Background_Carousel() );
+		$widget_manager->register( new Widget_Flip_Box() );
+		$widget_manager->register( new Widget_Blog() );
+		$widget_manager->register( new Widget_Portfolio() );
+		$widget_manager->register( new Widget_Portfolio_Carousel() );
+		$widget_manager->register( new Widget_Portfolio_Details() );
+		$widget_manager->register( new Widget_Case_Study_Carousel() );
+		$widget_manager->register( new Widget_Attribute_List() );
+		$widget_manager->register( new Widget_List() );
+		$widget_manager->register( new Widget_Gradation() );
+		$widget_manager->register( new Widget_Pricing_Table() );
+		$widget_manager->register( new Widget_Twitter() );
+		$widget_manager->register( new Widget_Team_Member() );
+		$widget_manager->register( new Widget_Team_Member_Carousel() );
+		$widget_manager->register( new Widget_Testimonial_Carousel() );
+		$widget_manager->register( new Widget_Testimonial_Grid() );
+		$widget_manager->register( new Widget_Social_Networks() );
+		$widget_manager->register( new Widget_Popup_Video() );
+		$widget_manager->register( new Widget_Separator() );
+		$widget_manager->register( new Widget_Table() );
+		$widget_manager->register( new Widget_Full_Page() );
+		$widget_manager->register( new Widget_View_Demo() );
+		$widget_manager->register( new Widget_Bar_Chart() );
+		$widget_manager->register( new Widget_Line_Chart() );
+		$widget_manager->register( new Widget_Pie_Chart() );
+		$widget_manager->register( new Widget_Shapes() );
+		$widget_manager->register( new Widget_Running_campaigns_Carousel() );
+		$widget_manager->register( new Widget_Image_Box_Carousel() );
 
 		/**
 		 * Include & Register Dependency Widgets.
@@ -267,30 +269,15 @@ class Widget_Init {
 		if ( defined( 'BOS_PLUGIN_VERSION' ) ) { // Booking.com Official Search Box plugin.
 			require_once BILLEY_ELEMENTOR_DIR . '/widgets/booking-form.php';
 
-			Plugin::instance()->widgets_manager->register_widget_type( new Widget_Booking_Form() );
+			$widget_manager->register( new Widget_Booking_Form() );
 		}
 
 		if ( \Billey_Woo::instance()->is_activated() ) {
 			require_once BILLEY_ELEMENTOR_DIR . '/widgets/posts/product.php';
 			require_once BILLEY_ELEMENTOR_DIR . '/widgets/product-categories.php';
 
-			Plugin::instance()->widgets_manager->register_widget_type( new Widget_Product() );
-			Plugin::instance()->widgets_manager->register_widget_type( new Widget_Product_Categories() );
-		}
-	}
-
-	/**
-	 * @param \Elementor\Widgets_Manager $widgets_manager
-	 *
-	 * Remove unwanted widgets
-	 */
-	function remove_unwanted_widgets( $widgets_manager ) {
-		$elementor_widget_blacklist = array(
-			'theme-site-logo',
-		);
-
-		foreach ( $elementor_widget_blacklist as $widget_name ) {
-			$widgets_manager->unregister_widget_type( $widget_name );
+			$widget_manager->register( new Widget_Product() );
+			$widget_manager->register( new Widget_Product_Categories() );
 		}
 	}
 

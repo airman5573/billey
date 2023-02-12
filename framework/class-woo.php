@@ -8,6 +8,7 @@ if ( ! class_exists( 'Billey_Woo' ) ) {
 	class Billey_Woo extends Billey_Post_Type {
 
 		protected static $instance = null;
+		const MINIMUM_PLUGIN_VERSION = '4.0.2';
 
 		public static $product_image_size_width  = '';
 		public static $product_image_size_height = '';
@@ -91,11 +92,16 @@ if ( ! class_exists( 'Billey_Woo' ) ) {
 			// Change review avatar size.
 			add_filter( 'woocommerce_review_gravatar_size', array( $this, 'woocommerce_review_gravatar_size' ) );
 
+			// Check old version installed.
+			if ( defined( 'WOOSCP_VERSION' ) || ( defined( 'WOOSC_VERSION' ) && version_compare( WOOSC_VERSION, self::MINIMUM_PLUGIN_VERSION, '<' ) ) ) {
+				add_action( 'admin_notices', [ $this, 'admin_notice_minimum_compare_plugin_version' ] );
+			}
+
 			// Hide default smart compare & smart wishlist button.
 			add_filter( 'woosw_button_position_archive', '__return_zero_string' );
 			add_filter( 'woosw_button_position_single', '__return_zero_string' );
-			add_filter( 'filter_wooscp_button_archive', '__return_zero_string' );
-			add_filter( 'filter_wooscp_button_single', '__return_zero_string' );
+			add_filter( 'woosc_button_position_archive', '__return_false' );
+			add_filter( 'woosc_button_position_single', '__return_false' );
 
 			// Add compare & wishlist button again.
 			add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'get_wishlist_button_template' ) );
@@ -510,7 +516,7 @@ if ( ! class_exists( 'Billey_Woo' ) ) {
 		}
 
 		function get_wishlist_button_template( $args = array() ) {
-			if ( ( Billey::setting( 'shop_archive_wishlist' ) !== '1' ) || ! class_exists( 'WPcleverWoosw' ) ) {
+			if ( ( Billey::setting( 'shop_archive_wishlist' ) !== '1' ) || ! class_exists( 'WPCleverWoosw' ) ) {
 				return;
 			}
 
@@ -541,7 +547,7 @@ if ( ! class_exists( 'Billey_Woo' ) ) {
 		}
 
 		function get_compare_button_template( $args = array() ) {
-			if ( Billey::setting( 'shop_archive_compare' ) !== '1' || wp_is_mobile() || ! class_exists( 'WPcleverWooscp' ) ) {
+			if ( Billey::setting( 'shop_archive_compare' ) !== '1' || wp_is_mobile() || ! class_exists( 'WPCleverWoosc' ) ) {
 				return;
 			}
 
@@ -566,7 +572,7 @@ if ( ! class_exists( 'Billey_Woo' ) ) {
 			?>
 			<div class="<?php echo esc_attr( $_wrapper_classes ); ?>"
 			     aria-label="<?php esc_attr_e( 'Compare', 'billey' ) ?>">
-				<?php echo do_shortcode( '[wooscp id="' . $product_id . '" type="link"]' ); ?>
+				<?php echo do_shortcode( '[woosc id="' . $product_id . '" type="link"]' ); ?>
 			</div>
 			<?php
 		}
@@ -747,6 +753,10 @@ if ( ! class_exists( 'Billey_Woo' ) ) {
 			}
 
 			return $style;
+		}
+
+		public function admin_notice_minimum_compare_plugin_version() {
+			billey_notice_required_plugin_version( 'WPC Smart Compare for WooCommerce', '4.0.1' );
 		}
 	}
 

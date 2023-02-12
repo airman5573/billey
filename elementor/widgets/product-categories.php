@@ -34,7 +34,7 @@ class Widget_Product_Categories extends Base {
 		return [ 'billey-group-widget-grid' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_layout_section();
 
 		$this->add_grid_section();
@@ -364,7 +364,7 @@ class Widget_Product_Categories extends Base {
 			'number'     => $settings['number'],
 			'hide_empty' => ( 'yes' === $settings['hide_empty'] ) ? true : false,
 		];
-		
+
 		switch ( $settings['source'] ) {
 			case 'by_id':
 				$attributes['include'] = $settings['categories'];
@@ -427,7 +427,7 @@ class Widget_Product_Categories extends Base {
 	protected function get_grid_options( array $settings ) {
 		$grid_options = [
 			'type'  => $settings['layout'],
-			'ratio' => $settings['metro_image_ratio']['size'],
+			//'ratio' => $settings['metro_image_ratio']['size'],
 		];
 
 		// Columns.

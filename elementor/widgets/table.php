@@ -26,7 +26,7 @@ class Widget_Table extends Base {
 		return [ 'table' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'layout_section', [
 			'label' => esc_html__( 'Layout', 'billey' ),
 		] );
@@ -266,7 +266,7 @@ class Widget_Table extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<#

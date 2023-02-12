@@ -32,7 +32,7 @@ class Widget_Icon_Box extends Base {
 		return [ 'billey-widget-icon-box' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_box_section();
 
 		$this->add_icon_section();
@@ -924,7 +924,7 @@ class Widget_Icon_Box extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		$id = uniqid( 'svg-gradient' );
 		// @formatter:off
 		?>

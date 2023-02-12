@@ -35,7 +35,7 @@ class Widget_Booking_Form extends Base {
 		return [ 'bos_sb_main_css' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'layout_section', [
 			'label' => esc_html__( 'Layout', 'billey' ),
 		] );

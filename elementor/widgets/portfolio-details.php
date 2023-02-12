@@ -25,7 +25,7 @@ class Widget_Portfolio_Details extends Base {
 		return [ 'portfolio', 'details' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_style_section();
 	}
 

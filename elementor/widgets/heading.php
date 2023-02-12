@@ -28,7 +28,7 @@ class Widget_Heading extends Base {
 		return [ 'heading', 'title', 'text' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_title_section();
 
 		$this->add_description_section();
@@ -698,7 +698,7 @@ class Widget_Heading extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<#

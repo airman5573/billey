@@ -4,7 +4,7 @@ class Billey_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 	private $mega_menu = false;
 
-	public function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+	public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
 		$id_field = $this->db_fields['id'];
 		if ( is_object( $args[0] ) ) {
 			$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );

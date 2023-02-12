@@ -24,7 +24,7 @@ class Widget_Twitter extends Base {
 		return [ 'media', 'twitter' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'content_section', [
 			'label' => esc_html__( 'Content', 'billey' ),
 		] );

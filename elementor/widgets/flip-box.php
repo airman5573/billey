@@ -32,7 +32,7 @@ class Widget_Flip_Box extends Base {
 		return [ 'billey-widget-flip-box' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		// Content Tab.
 		$this->add_front_side_content_section();
 
@@ -1282,7 +1282,7 @@ class Widget_Flip_Box extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		$id = uniqid( 'svg-gradient' );
 		// @formatter:off
 		?>

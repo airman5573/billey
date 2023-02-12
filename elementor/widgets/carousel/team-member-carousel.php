@@ -27,10 +27,10 @@ class Widget_Team_Member_Carousel extends Static_Carousel {
 		return [ 'team', 'member', 'avatar', 'carousel' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_layout_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 
 		$this->add_image_style_section();
 
@@ -260,7 +260,7 @@ class Widget_Team_Member_Carousel extends Static_Carousel {
 					$icon_class = $item[0];
 					$url        = $item[1];
 					?>
-					<a href="<?php esc_url( $url ); ?>" target="_blank" rel="nofollow">
+					<a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="nofollow">
 						<span class="link-icon <?php echo esc_attr( $icon_class ); ?>"></span>
 					</a>
 					<?php

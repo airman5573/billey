@@ -218,6 +218,10 @@
 						}
 					};
 
+					if ( $billey.isRTL ) {
+						isotopeOptions.originLeft = false;
+					}
+
 					if ( 'masonry' === settings.type || 'metro' === settings.type ) {
 						isotopeOptions.layoutMode = 'packery';
 					} else {
@@ -233,7 +237,7 @@
 						handlerEntranceAnimation();
 					} );
 
-					$( window ).resize( function() {
+					$( window ).on( 'resize', function() {
 						calculateMasonrySize( isotopeOptions );
 
 						// Sometimes layout can be overlap. then re-cal layout one time.

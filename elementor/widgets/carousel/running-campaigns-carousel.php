@@ -33,13 +33,13 @@ class Widget_Running_campaigns_Carousel extends Static_Carousel
 		return ['running campaigns', 'carousel'];
 	}
 
-	protected function _register_controls()
+	protected function register_controls()
 	{
 		$this->add_content_section();
 
 		$this->add_style_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 
 		$this->update_controls();
 	}

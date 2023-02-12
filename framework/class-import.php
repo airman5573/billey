@@ -19,20 +19,22 @@ if ( ! class_exists( 'Billey_Import' ) ) {
 
 		public function initialize() {
 			add_filter( 'insight_core_import_demos', array( $this, 'import_demos' ) );
-			add_filter( 'insight_core_import_generate_thumb', array( $this, 'generate_thumbnail' ) );
+			//			add_filter( 'insight_core_import_generate_thumb', array( $this, 'generate_thumbnail' ) );
+			add_filter( 'insight_core_import_generate_thumb', '__return_false' );
+			add_filter( 'insight_core_import_delete_exist_posts', '__return_true' );
 		}
 
 		public function import_demos() {
 			return array(
 				'01' => array(    // Done.
-					'screenshot' => BILLEY_THEME_URI . '/screenshot.jpg',
-					'name'       => BILLEY_THEME_NAME.'-version-1.3.0',
-					'url'        => 'https://api.thememove.com/import/billey/billey-insightcore01-1.0.1.zip',
+				                  'screenshot' => BILLEY_THEME_URI . '/screenshot.jpg',
+				                  'name'       => BILLEY_THEME_NAME . ' Main',
+				                  'url'        => 'https://www.dropbox.com/s/lej1jyns5qwdqdr/billey-insightcore01-main-1.5.7.zip?dl=1',
 				),
 				'02' => array(    // Done.
-					'screenshot' => BILLEY_THEME_URI . '/screenshot.jpg',
-					'name'       => BILLEY_THEME_NAME.'-version-1.4.0',
-					'url'        => 'https://drive.google.com/file/d/1Ywwk_xczMfBRtVeX2VQaKMe47Lxg6qDv/view?usp=sharing',
+				                  'screenshot' => BILLEY_THEME_URI . '/screenshot.jpg',
+				                  'name'       => BILLEY_THEME_NAME . ' RTL',
+				                  'url'        => 'https://www.dropbox.com/s/t2lzud078bi65he/billey-insightcore01-rtl-1.5.7.zip?dl=1',
 				),
 			);
 		}

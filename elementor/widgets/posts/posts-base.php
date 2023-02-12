@@ -4,7 +4,6 @@ namespace Billey_Elementor;
 
 use Elementor\Controls_Manager;
 use Elementor\Group_Control_Typography;
-use ElementorPro\Modules\QueryControl\Module as Module_Query;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -35,7 +34,7 @@ abstract class Posts_Base extends Base {
 		return $this->_query_args;
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->register_query_section();
 	}
 
@@ -79,12 +78,12 @@ abstract class Posts_Base extends Base {
 		] );
 
 		$this->add_control( 'query_include_term_ids', [
-			'type'         => Module_Query::QUERY_CONTROL_ID,
+			'type'         => Module_Query_Base::AUTOCOMPLETE_CONTROL_ID,
 			'options'      => [],
 			'label_block'  => true,
 			'multiple'     => true,
 			'autocomplete' => [
-				'object'  => Module_Query::QUERY_OBJECT_CPT_TAX,
+				'object'  => Module_Query_Base::QUERY_OBJECT_TAX,
 				'display' => 'detailed',
 				'query'   => [
 					'post_type' => $this->get_post_type(),
@@ -99,12 +98,12 @@ abstract class Posts_Base extends Base {
 		$this->add_control( 'query_include_authors', [
 			'label'        => esc_html__( 'Author', 'billey' ),
 			'label_block'  => true,
-			'type'         => Module_Query::QUERY_CONTROL_ID,
+			'type'         => Module_Query_Base::AUTOCOMPLETE_CONTROL_ID,
 			'multiple'     => true,
 			'default'      => [],
 			'options'      => [],
 			'autocomplete' => [
-				'object' => Module_Query::QUERY_OBJECT_AUTHOR,
+				'object' => Module_Query_Base::QUERY_OBJECT_AUTHOR,
 			],
 			'condition'    => [
 				'query_include' => 'authors',
@@ -133,12 +132,12 @@ abstract class Posts_Base extends Base {
 		] );
 
 		$this->add_control( 'query_exclude_term_ids', [
-			'type'         => Module_Query::QUERY_CONTROL_ID,
+			'type'         => Module_Query_Base::AUTOCOMPLETE_CONTROL_ID,
 			'options'      => [],
 			'label_block'  => true,
 			'multiple'     => true,
 			'autocomplete' => [
-				'object'  => Module_Query::QUERY_OBJECT_CPT_TAX,
+				'object'  => Module_Query_Base::QUERY_OBJECT_TAX,
 				'display' => 'detailed',
 				'query'   => [
 					'post_type' => $this->get_post_type(),
@@ -153,12 +152,12 @@ abstract class Posts_Base extends Base {
 		$this->add_control( 'query_exclude_authors', [
 			'label'        => esc_html__( 'Author', 'billey' ),
 			'label_block'  => true,
-			'type'         => Module_Query::QUERY_CONTROL_ID,
+			'type'         => Module_Query_Base::AUTOCOMPLETE_CONTROL_ID,
 			'multiple'     => true,
 			'default'      => [],
 			'options'      => [],
 			'autocomplete' => [
-				'object' => Module_Query::QUERY_OBJECT_AUTHOR,
+				'object' => Module_Query_Base::QUERY_OBJECT_AUTHOR,
 			],
 			'condition'    => [
 				'query_exclude' => 'authors',

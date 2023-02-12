@@ -9,7 +9,7 @@
 		  width: 100%;
 
 		  .title {
-			 font-family: Futura;
+			 font-family: $secondary-font-family;
 			 font-size: 22px;
 			 font-weight: 500;
 			 font-stretch: normal;
@@ -23,7 +23,7 @@
 
 		.description {
 		  margin-top: 20px;
-		  font-family: CerebriSans;
+		  font-family: $body-font-family;
 		  font-size: 14px;
 		  font-weight: 500;
 		  font-style: italic;
@@ -32,7 +32,7 @@
 		}
 
 		.secondary-desc {
-		  font-family: CerebriSans;
+		  font-family: $body-font-family;
 		  font-size: 14px;
 		  font-weight: 500;
 		  font-style: italic;

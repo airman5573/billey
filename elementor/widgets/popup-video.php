@@ -28,7 +28,7 @@ class Widget_Popup_Video extends Base {
 		return [ 'popup', 'video', 'player', 'embed', 'youtube', 'vimeo' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_video_section();
 
 		$this->add_image_style_section();

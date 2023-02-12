@@ -59,6 +59,7 @@
 			transform: translate(-50%, -50%);
 			border-top: 0.0916667em solid transparent;
 			border-bottom: 0.0916667em solid transparent;
+			/*rtl:ignore*/
 			border-left: 0.1333333em solid #111;
 		}
 	}
@@ -90,6 +91,7 @@
 
 		.icon {
 			&:before {
+				/*rtl:ignore*/
 				border-left-color: #fff;
 			}
 		}

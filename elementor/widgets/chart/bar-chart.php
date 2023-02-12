@@ -21,7 +21,7 @@ class Widget_Bar_Chart extends Chart_Base {
 		return [ 'chart', 'graphic', 'bar', 'column' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_chart_section();
 
 		$this->add_chart_legend_section();

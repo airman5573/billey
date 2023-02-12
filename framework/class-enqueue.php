@@ -25,6 +25,11 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 
 			add_action( 'wp_enqueue_scripts', array( $this, 'frontend_scripts' ) );
 
+			/**
+			 * Make it run after main style & components.
+			 */
+			add_action( 'wp_enqueue_scripts', [ $this, 'rtl_styles' ], 20 );
+
 			// Disable woocommerce all default styles.
 			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
@@ -77,7 +82,7 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 				wp_dequeue_script( 'woocommerce' );
 
 				// From Woo Smart Compare
-				wp_dequeue_script( 'wooscp-frontend' );
+				wp_dequeue_script( 'woosc-frontend' );
 				wp_dequeue_script( 'dragarrange' );
 				wp_dequeue_script( 'table-head-fixer' );
 
@@ -121,6 +126,8 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 		 */
 		public function frontend_scripts() {
 			$post_type = get_post_type();
+			$min       = \Billey_Enqueue::instance()->get_min_suffix();
+			$rtl       = \Billey_Enqueue::instance()->get_rtl_suffix();
 
 			// Remove prettyPhoto, default light box of woocommerce.
 			wp_dequeue_script( 'prettyPhoto' );
@@ -139,11 +146,9 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 			/*
 			 * Begin register scripts & styles to be enqueued later.
 			 */
-			wp_register_style( 'billey-style-rtl', BILLEY_THEME_URI . '/style-rtl.css', null, BILLEY_THEME_VERSION );
+			wp_register_style( 'billey-woocommerce', BILLEY_THEME_URI . "/woocommerce{$rtl}{$min}.css", null, BILLEY_THEME_VERSION );
 
-			wp_register_style( 'billey-woocommerce', BILLEY_THEME_URI . '/woocommerce.css' );
-
-			wp_register_style( 'font-awesome-pro', BILLEY_THEME_URI . '/assets/fonts/awesome/css/fontawesome-all.min.css', null, '5.10.0' );
+			wp_register_style( 'font-awesome-pro', BILLEY_THEME_URI . '/assets/fonts/awesome/css/fontawesome-all.min.css', null, '5.15.4' );
 
 			wp_register_style( 'justifiedGallery', BILLEY_THEME_URI . '/assets/libs/justifiedGallery/css/justifiedGallery.min.css', null, '3.7.0' );
 			wp_register_script( 'justifiedGallery', BILLEY_THEME_URI . '/assets/libs/justifiedGallery/js/jquery.justifiedGallery.min.js', array( 'jquery' ), '3.7.0', true );
@@ -206,10 +211,10 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 			 * This is recommended because we can add inline styles there
 			 * and some plugins use it to do exactly that.
 			 */
-			wp_enqueue_style( 'billey-style', get_template_directory_uri() . '/style.css' );
-
 			if ( is_rtl() ) {
-				wp_enqueue_style( 'billey-style-rtl' );
+				wp_enqueue_style( 'billey-style', get_template_directory_uri() . "/style-rtl{$min}.css" );
+			} else {
+				wp_enqueue_style( 'billey-style', get_template_directory_uri() . "/style{$min}.css" );
 			}
 
 			if ( Billey_Woo::instance()->is_activated() ) {
@@ -224,7 +229,18 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 				wp_enqueue_script( 'smooth-scroll' );
 			}
 
+			/**
+			 * Fix Elementor load out-date version 1.0.1
+			 */
+			wp_deregister_script( 'smartmenus' );
+			wp_register_script( 'smartmenus', BILLEY_THEME_URI . '/assets/libs/smartmenus/jquery.smartmenus.min.js', array( 'jquery' ), '1.1.1', true );
+
 			wp_enqueue_script( 'lightgallery' );
+
+			/**
+			 * Use theme version fixed jquery deprecated.
+			 */
+			wp_deregister_script( 'elementor-waypoints' );
 
 			// Use waypoints lib edited by Elementor to avoid duplicate the script.
 			if ( ! wp_script_is( 'elementor-waypoints', 'registered' ) ) {
@@ -238,7 +254,7 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 			wp_enqueue_script( 'billey-swiper-wrapper' );
 
 			wp_enqueue_script( 'billey-grid-layout' );
-			wp_enqueue_script( 'smartmenus', BILLEY_THEME_URI . '/assets/libs/smartmenus/jquery.smartmenus.min.js', array( 'jquery' ), BILLEY_THEME_VERSION, true );
+			wp_enqueue_script( 'smartmenus' );
 
 			wp_enqueue_style( 'perfect-scrollbar', BILLEY_THEME_URI . '/assets/libs/perfect-scrollbar/css/perfect-scrollbar.min.css' );
 			wp_enqueue_style( 'perfect-scrollbar-woosw', BILLEY_THEME_URI . '/assets/libs/perfect-scrollbar/css/custom-theme.css' );
@@ -349,6 +365,7 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 				'noticeCookieEnable'        => Billey::setting( 'notice_cookie_enable' ),
 				'noticeCookieConfirm'       => isset( $_COOKIE['notice_cookie_confirm'] ) ? 'yes' : 'no',
 				'noticeCookieMessages'      => Billey_Notices::instance()->get_notice_cookie_messages(),
+				'isRTL'                     => is_rtl(),
 			);
 			wp_localize_script( 'billey-script', '$billey', $js_variables );
 
@@ -358,6 +375,27 @@ if ( ! class_exists( 'Billey_Enqueue' ) ) {
 			if ( Billey::setting( 'custom_js_enable' ) == 1 ) {
 				wp_add_inline_script( 'billey-script', html_entity_decode( Billey::setting( 'custom_js' ) ) );
 			}
+		}
+
+		public function rtl_styles() {
+			$min = $this->get_min_suffix();
+
+			wp_register_style( 'billey-style-rtl-custom', BILLEY_THEME_URI . "/style-rtl-custom$min.css", [ 'billey-style' ], BILLEY_THEME_VERSION );
+
+			if ( is_rtl() ) {
+				wp_enqueue_style( 'billey-style-rtl-custom' );
+			}
+		}
+
+		/**
+		 * @return string
+		 */
+		public function get_min_suffix() {
+			return defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ? '' : '.min';
+		}
+
+		public function get_rtl_suffix() {
+			return is_rtl() ? '-rtl' : '';
 		}
 	}
 

@@ -25,6 +25,8 @@
 								<?php Billey_THA::instance()->header_right_bottom(); ?>
 							</div>
 
+							<?php Billey_Header::instance()->print_my_account_button(); ?>
+
 							<?php Billey_Woo::instance()->render_mini_cart(); ?>
 
 							<?php Billey_Header::instance()->print_search_button(); ?>

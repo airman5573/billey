@@ -1,0 +1,97 @@
+.rtl.desktop-menu .sm-simple > li > ul {
+  left: auto !important;
+  right: 0 !important;
+}
+
+.rtl.desktop-menu .sm-simple > li > ul ul {
+  right: 100% !important;
+  top: 0;
+}
+
+.rtl.desktop-menu .sm-simple:not(.sm-vertical) .has-mega-menu .mega-menu {
+  right: 0;
+  left: auto !important;
+  width: 100% !important;
+}
+
+.rtl.desktop-menu .sm-simple .simple-menu .toggle-sub-menu:before {
+  content: '\f053';
+}
+
+.rtl .page-mobile-main-menu .menu-item-wrap {
+  text-align: right;
+}
+
+.rtl .page-mobile-main-menu .toggle-sub-menu:after {
+  content: "\f053";
+}
+
+.rtl .portfolio-overlay-flat .post-overlay-icon .fa-arrow-right:before {
+  content: "\f060";
+}
+
+.rtl .portfolio-nav-links.style-01 .next h6:before {
+  content: '\f060';
+}
+
+.rtl .portfolio-nav-links.style-01 .prev h6:before {
+  content: '\f061';
+}
+
+.rtl .billey-case-study-carousel.style-rtl .slide-layers {
+  padding: 0 40px 0 0;
+}
+
+.rtl .tm-image-box.style-04 .content-wrap {
+  padding: 5px 40px 40px 0;
+}
+
+.rtl .lg-outer {
+  direction: ltr;
+}
+
+.rtl .tm-swiper .swiper-button-prev i:before {
+  content: '\f105';
+}
+
+.rtl .tm-swiper .swiper-button-next i:before {
+  content: '\f104';
+}
+
+.rtl .comment-nav-links li .next span:before,
+.rtl .page-pagination li .next span:before {
+  content: "\f104";
+}
+
+.rtl .comment-nav-links li .prev span:before,
+.rtl .page-pagination li .prev span:before {
+  content: "\f105";
+}
+
+.rtl blockquote {
+  border-left: 0 !important;
+}
+
+.rtl .nav-links .previous div span:before {
+  content: "\f061";
+}
+
+.rtl .nav-links .next div span:before {
+  content: "\f060";
+}
+
+.rtl.single-blog-style-modern .post-return-archive:before {
+  content: "\f061";
+}
+
+.rtl.woocommerce nav.woocommerce-pagination ul li .next span:before {
+  content: "\f104";
+}
+
+.rtl.woocommerce nav.woocommerce-pagination ul li .prev span:before {
+  content: "\f105";
+}
+
+.rtl .popup-product-quick-view .entry-summary .inner-content > .inner {
+  text-align: right;
+}

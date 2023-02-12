@@ -32,7 +32,7 @@ class Widget_Image_Box extends Base {
 		return [ 'image', 'photo', 'visual', 'box' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_image_box_section();
 
 		$this->add_box_style_section();
@@ -741,7 +741,7 @@ class Widget_Image_Box extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<#

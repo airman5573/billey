@@ -45,7 +45,7 @@ class Widget_Portfolio extends Posts_Base {
 		];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_layout_section();
 
 		$this->add_grid_section();
@@ -66,7 +66,7 @@ class Widget_Portfolio extends Posts_Base {
 
 		$this->add_pagination_style_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 	}
 
 	private function add_layout_section() {

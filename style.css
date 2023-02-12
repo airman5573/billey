@@ -5,7 +5,7 @@ Theme URI: http://billey.thememove.com
 Author: ThemeMove
 Author URI: http://thememove.com
 Description: Billey – Ultimate Multipurpose Creative WordPress Theme
-Version: 1.5.1
+Version: 1.7.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: billey
@@ -92,7 +92,7 @@ input[type='submit'],
 
 .page-mobile-main-menu .toggle-sub-menu:after, .tm-swiper .swiper-nav-button i, .billey-product.style-grid .quick-view-icon:before,
 .billey-product.style-grid .woosw-btn:before,
-.billey-product.style-grid .wooscp-btn:before {
+.billey-product.style-grid .woosc-btn:before {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -4870,6 +4870,14 @@ p .alignnone:last-child {
   padding: 0 15px;
 }
 
+.header-icon {
+  font-size: 18px;
+}
+
+.header-icon a {
+  color: inherit !important;
+}
+
 .header-search-form .search-form {
   position: relative;
 }
@@ -9573,7 +9581,7 @@ body.elementor-archive-page.page-has-sidebar .page-content {
 .portfolio-nav-links.style-02 .nav-item * {
   font-size: 50px;
   line-height: 1.2;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .portfolio-nav-links.style-02 a {
@@ -12026,7 +12034,6 @@ ins.play-gif {
 .billey-modern-background-carousel .slide-content {
   width: 100%;
   position: relative;
-  background: #fff;
   padding: 68px 40px 51px;
   -webkit-transform: translateY(100%) translateZ(0);
           transform: translateY(100%) translateZ(0);
@@ -12036,18 +12043,22 @@ ins.play-gif {
   transition: transform 0.5s cubic-bezier(0, 0, 0.2, 1), -webkit-transform 0.5s cubic-bezier(0, 0, 0.2, 1);
 }
 
-.billey-modern-background-carousel .swiper-slide:hover .slide-content {
+.billey-modern-background-carousel .swiper-slide.swiper-slide-hovered .slide-content {
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
 }
 
-.billey-modern-background-carousel .swiper-slide:hover .slide-anchor-icon {
+.billey-modern-background-carousel .swiper-slide.swiper-slide-hovered .slide-anchor-icon {
   opacity: 1;
 }
 
-.billey-modern-background-carousel .swiper-slide:hover .title.before {
+.billey-modern-background-carousel .swiper-slide.swiper-slide-hovered .title.before {
   opacity: 0;
+}
+
+.billey-modern-background-carousel .swiper-slide.swiper-slide-hovered .slide-content {
+  background: #fff;
 }
 
 .billey-modern-background-carousel .slide-anchor-icon {
@@ -12093,6 +12104,48 @@ ins.play-gif {
 .billey-modern-background-carousel .description {
   font-size: 16px;
   line-height: 1.75;
+}
+
+@media (max-width: 1024px) {
+  .billey-modern-background-carousel .title {
+    font-size: 28px;
+  }
+  .billey-modern-background-carousel .slide-content {
+    padding: 45px 30px 35px;
+  }
+  .billey-modern-background-carousel .slide-anchor-icon {
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+  }
+  .billey-modern-background-carousel .description-wrap {
+    margin: 10px 0 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .billey-modern-background-carousel .slide-wrapper {
+    padding: 15px;
+  }
+  .billey-modern-background-carousel .title.before {
+    left: 20px;
+    right: 20px;
+    bottom: 25px;
+  }
+  .billey-modern-background-carousel .title {
+    font-size: 22px;
+  }
+  .billey-modern-background-carousel .slide-content {
+    padding: 40px 20px 25px;
+  }
+  .billey-modern-background-carousel .slide-anchor-icon {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+  }
+  .billey-modern-background-carousel .description-wrap {
+    margin: 10px 0 0;
+  }
 }
 
 .tm-modern-slider .slide-bg-wrap {
@@ -13650,7 +13703,7 @@ ins.play-gif {
 
 .billey-product.style-grid .quick-view-icon,
 .billey-product.style-grid .woosw-btn,
-.billey-product.style-grid .wooscp-btn {
+.billey-product.style-grid .woosc-btn {
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0;
@@ -13663,7 +13716,7 @@ ins.play-gif {
 
 .billey-product.style-grid .quick-view-icon:before,
 .billey-product.style-grid .woosw-btn:before,
-.billey-product.style-grid .wooscp-btn:before {
+.billey-product.style-grid .woosc-btn:before {
   font-size: 15px;
 }
 
@@ -13671,7 +13724,7 @@ ins.play-gif {
   content: '\f002';
 }
 
-.billey-product.style-grid .wooscp-btn:before {
+.billey-product.style-grid .woosc-btn:before {
   content: '\f3f1';
 }
 
@@ -13692,7 +13745,7 @@ ins.play-gif {
 }
 
 .billey-product.style-grid .woosw-adding:before,
-.billey-product.style-grid .wooscp-btn-adding:before {
+.billey-product.style-grid .woosc-btn-adding:before {
   -webkit-animation: load-spin 1s linear infinite !important;
           animation: load-spin 1s linear infinite !important;
   content: '\f3f4' !important;
@@ -16254,11 +16307,11 @@ ins.play-gif {
 }
 
 .billey-testimonial-style-03 .text {
-  font-family: CerebriSans;
+  font-family: "Satoshi, sans-serif";
   font-size: 16px;
   line-height: 1.75;
   text-align: center;
-  color: #888888;
+  color: #888;
   text-decoration: none;
   font-style: normal;
 }
@@ -16576,6 +16629,7 @@ ins.play-gif {
           transform: translate(-50%, -50%);
   border-top: 0.0916667em solid transparent;
   border-bottom: 0.0916667em solid transparent;
+  
   border-left: 0.1333333em solid #111;
 }
 
@@ -16603,6 +16657,7 @@ ins.play-gif {
 }
 
 .tm-popup-video.type-poster .icon:before {
+  
   border-left-color: #fff;
 }
 
@@ -17514,6 +17569,85 @@ ins.play-gif {
   }
 }
 
+.typed-cursor {
+  opacity: 1;
+  -webkit-animation: blink .7s infinite;
+          animation: blink .7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.tm-typed-headline {
+  max-width: 100%;
+}
+
+.tm-typed-headline .billey-headline {
+  display: inline-block;
+  margin: 0;
+}
+
+.tm-typed-headline .headline-part {
+  display: inline-block;
+}
+
+.tm-typed-headline .typed-cursor {
+  color: inherit;
+  background: inherit;
+}
+
+.elementor-row {
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+
+.elementor-container.elementor-container > .elementor-row > .elementor-column > .elementor-element-populated > .elementor-widget-wrap {
+  padding: 0;
+}
+
+.elementor-container.elementor-column-gap-narrow > .elementor-row > .elementor-column > .elementor-element-populated {
+  padding: 0 5px;
+}
+
+.elementor-container.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+  padding: 0 10px;
+}
+
+.elementor-container.elementor-column-gap-extended > .elementor-row > .elementor-column > .elementor-element-populated {
+  padding: 0 15px;
+}
+
+.elementor-container.elementor-column-gap-wide > .elementor-row > .elementor-column > .elementor-element-populated {
+  padding: 0 20px;
+}
+
+.elementor-container.elementor-column-gap-wider > .elementor-row > .elementor-column > .elementor-element-populated {
+  padding: 0 30px;
+}
+
 
 .elementor-section-gap-beside-no > .elementor-container > .elementor-row {
   -webkit-box-flex: 1;
@@ -17886,7 +18020,7 @@ ins.play-gif {
 .billey-running-campaigns-carousel.style-01 .slide-wrapper .slide-inner .slide-content .slide-layers .desc {
   display: block;
   position: relative;
-  font-family: CerebriSans;
+  font-family: "Satoshi, sans-serif";
   font-size: 16px;
   line-height: 1.75;
   color: #888888;
@@ -17894,7 +18028,7 @@ ins.play-gif {
 }
 
 .billey-running-campaigns-carousel.style-01 .slide-wrapper .slide-inner .slide-content .slide-layers .title {
-  font-family: Futura;
+  font-family: "Futura, sans-serif";
   font-size: 24px;
   font-weight: 500;
   color: #111111;
@@ -17909,14 +18043,14 @@ ins.play-gif {
 
 .billey-running-campaigns-carousel.style-01 .slide-wrapper .slide-inner .slide-content .slide-layers .detail .label {
   opacity: 0.4;
-  font-family: CerebriSans;
+  font-family: "Satoshi, sans-serif";
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 1.38px;
 }
 
 .billey-running-campaigns-carousel.style-01 .slide-wrapper .slide-inner .slide-content .slide-layers .detail .value {
-  font-family: Futura;
+  font-family: "Futura, sans-serif";
   font-size: 20px;
   font-weight: 500;
   color: #111111;
@@ -17946,7 +18080,7 @@ ins.play-gif {
 .billey-running-campaigns-carousel.style-01 .slide-wrapper .slide-inner .progress-number {
   text-align: right;
   opacity: 0.4;
-  font-family: CerebriSans;
+  font-family: "Satoshi, sans-serif";
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 1.38px;
@@ -18093,7 +18227,7 @@ ins.play-gif {
 }
 
 .tm-image-box-carousel.style-01 .slide-layers .title-wrap .title {
-  font-family: Futura;
+  font-family: "Futura, sans-serif";
   font-size: 22px;
   font-weight: 500;
   font-stretch: normal;
@@ -18106,7 +18240,7 @@ ins.play-gif {
 
 .tm-image-box-carousel.style-01 .slide-layers .description {
   margin-top: 20px;
-  font-family: CerebriSans;
+  font-family: "Satoshi, sans-serif";
   font-size: 14px;
   font-weight: 500;
   font-style: italic;
@@ -18115,7 +18249,7 @@ ins.play-gif {
 }
 
 .tm-image-box-carousel.style-01 .slide-layers .secondary-desc {
-  font-family: CerebriSans;
+  font-family: "Satoshi, sans-serif";
   font-size: 14px;
   font-weight: 500;
   font-style: italic;

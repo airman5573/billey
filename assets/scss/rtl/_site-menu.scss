@@ -1,0 +1,33 @@
+.rtl {
+	&.desktop-menu .sm-simple > li > ul {
+		left: auto !important;
+		right: 0 !important;
+
+		ul {
+			right: 100% !important;
+			top: 0;
+		}
+	}
+
+	&.desktop-menu {
+		.sm-simple:not(.sm-vertical) .has-mega-menu .mega-menu {
+			right: 0;
+			left: auto !important;
+			width: 100% !important;
+		}
+	}
+
+	&.desktop-menu .sm-simple .simple-menu .toggle-sub-menu:before {
+		content: '\f053';
+	}
+
+	.page-mobile-main-menu {
+		.menu-item-wrap {
+			text-align: right;
+		}
+
+		.toggle-sub-menu:after {
+			content: "\f053";
+		}
+	}
+}

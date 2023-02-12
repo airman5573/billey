@@ -28,7 +28,7 @@ class Widget_Pricing_Table extends Base {
 		return [ 'modern', 'pricing', 'table' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_layout_section();
 
 		$this->add_header_section();

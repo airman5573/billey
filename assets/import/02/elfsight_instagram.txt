@@ -1,0 +1,59 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+--
+-- Database: `billey_thememove_com`
+--
+
+
+
+
+CREATE TABLE IF NOT EXISTS `wp_elfsight_instagram_feed_cache` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `key` text NOT NULL,
+  `data` longtext NOT NULL,
+  `updated_at` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `wp_elfsight_instagram_feed_user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `public_id` varchar(255) NOT NULL,
+  `data` text NOT NULL,
+  `updated_at` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `wp_elfsight_instagram_feed_widgets` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `time_created` varchar(10) NOT NULL,
+  `time_updated` varchar(10) NOT NULL,
+  `active` int(1) NOT NULL DEFAULT 1,
+  `options` longtext CHARACTER SET utf8mb4 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

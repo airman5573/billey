@@ -29,7 +29,7 @@ class Widget_Team_Member extends Base {
 		return [ 'team', 'member', 'avatar' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
 		$this->add_box_overlay_style_section();

@@ -3,7 +3,7 @@
 namespace Billey_Elementor;
 
 use Elementor\Controls_Manager;
-use Elementor\Controls_Stack;
+//use Elementor\Core\Breakpoints\Manager as Breakpoints_Manager;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -18,7 +18,7 @@ abstract class Carousel_Base extends Base {
 
 	abstract protected function print_slides( array $settings );
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_swiper_options_section();
 
 		$this->add_swiper_arrows_style_section();
@@ -34,12 +34,24 @@ abstract class Carousel_Base extends Base {
 		$slider_settings = [
 			'class'          => [ 'tm-swiper tm-slider-widget' ],
 			'data-lg-items'  => $settings['swiper_items'],
-			'data-md-items'  => $settings['swiper_items_tablet'],
-			'data-sm-items'  => $settings['swiper_items_mobile'],
 			'data-lg-gutter' => $settings['swiper_gutter'],
-			'data-md-gutter' => $settings['swiper_gutter_tablet'],
-			'data-sm-gutter' => $settings['swiper_gutter_mobile'],
 		];
+
+		if ( isset( $settings['swiper_items_tablet'] ) ) {
+			$slider_settings['data-md-items'] = $settings['swiper_items_tablet'];
+		}
+
+		if ( isset( $settings['swiper_items_mobile'] ) ) {
+			$slider_settings['data-sm-items'] = $settings['swiper_items_mobile'];
+		}
+
+		if ( isset( $settings['swiper_gutter_tablet'] ) ) {
+			$slider_settings['data-md-gutter'] = $settings['swiper_gutter_tablet'];
+		}
+
+		if ( isset( $settings['swiper_gutter_mobile'] ) ) {
+			$slider_settings['data-sm-gutter'] = $settings['swiper_gutter_mobile'];
+		}
 
 		if ( ! empty( $settings['swiper_content_vertical_align'] ) ) {
 			$slider_settings['class'][] = 'v-' . $settings['swiper_content_vertical_align'];
@@ -177,10 +189,10 @@ abstract class Carousel_Base extends Base {
 		] );
 
 		$this->add_responsive_control( 'swiper_slides_width', [
-			'label'      => esc_html__( 'Slides Width', 'billey' ),
-			'type'       => Controls_Manager::SLIDER,
-			'size_units' => [ 'px', '%' ],
-			'range'      => [
+			'label'       => esc_html__( 'Slides Width', 'billey' ),
+			'type'        => Controls_Manager::SLIDER,
+			'size_units'  => [ 'px', '%' ],
+			'range'       => [
 				'px' => [
 					'min'  => 100,
 					'max'  => 1000,
@@ -191,23 +203,11 @@ abstract class Carousel_Base extends Base {
 					'max' => 100,
 				],
 			],
-			'selectors'  => [
+			'selectors'   => [
 				'{{WRAPPER}} .swiper-slide' => 'width: {{SIZE}}{{UNIT}}',
 			],
-			'condition'  => [
+			'condition'   => [
 				'swiper_items' => 'auto-fixed',
-			],
-			'device_args' => [
-				Controls_Stack::RESPONSIVE_TABLET => [
-					'condition' => [
-						'swiper_items_tablet' => [ 'auto-fixed' ],
-					],
-				],
-				Controls_Stack::RESPONSIVE_MOBILE => [
-					'condition' => [
-						'swiper_items_mobile' => [ 'auto-fixed' ],
-					],
-				],
 			],
 		] );
 

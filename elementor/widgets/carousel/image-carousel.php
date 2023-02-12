@@ -27,7 +27,7 @@ class Widget_Image_Carousel extends Carousel_Base {
 		return [ 'image', 'photo', 'visual', 'carousel', 'slider' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
 		$this->add_swiper_options_section();

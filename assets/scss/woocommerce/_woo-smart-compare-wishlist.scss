@@ -1,194 +1,237 @@
-.woosw-area .woosw-inner .woosw-content .woosw-content-top {
-	background: #111;
+.woosw-popup .woosw-popup-inner .woosw-popup-content .woosw-popup-content-top {
+    background: #111;
 }
 
-.woosw-area .woosw-inner .woosw-content .woosw-content-bot {
-	background: #111;
-	line-height: unset;
-	display: flex;
-	align-items: center;
+.woosw-popup .woosw-popup-inner .woosw-popup-content .woosw-popup-content-bot {
+    background: #111;
+    line-height: unset;
+    display: flex;
+    align-items: center;
 }
 
-.woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner {
-	align-items: center;
+.woosw-popup .woosw-popup-inner .woosw-popup-content .woosw-popup-content-bot .woosw-popup-content-bot-inner {
+    align-items: center;
+
+    a, span {
+        text-decoration: none;
+    }
 }
 
-.woosw-area .woosw-inner .woosw-content .woosw-content-bot .woosw-content-bot-inner > span {
-	flex-basis: unset;
+.woosw-popup .woosw-popup-inner .woosw-popup-content .woosw-popup-content-bot .woosw-popup-content-bot-inner > span {
+    flex-basis: unset;
+}
+
+.woosw-item--add {
+    .added_to_cart {
+        display: block;
+        margin-top: 10px;
+    }
 }
 
 .woosw-copy {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .woosw-page {
-	flex-grow: 1;
+    display: inline-block;
 }
 
-.woosw-page a {
-	display: inline-block;
-}
-
-.woosw-page a,
+.woosw-page,
 .woosw-continue {
-	@extend %LinkTransition;
-	color: #fff !important;
+    @extend %LinkTransition;
+    color: #fff !important;
 
-	&:after {
-		bottom: 2px;
-	}
+    &:after {
+        bottom: 2px;
+    }
 }
 
-.woosw-list table.woosw-content-items .woosw-content-item .woosw-content-item--remove span:before {
-	@extend %FontAwesomeLightImportant;
-	content: '\f00d' !important;
+.woosw-list table.woosw-items .woosw-item .woosw-item--remove span:before {
+    @extend %FontAwesomeLightImportant;
+    content: '\f00d' !important;
 }
 
 .woosw-list {
-	.add_to_cart_button {
-		height: 45px;
-		line-height: 43px;
-		padding: 0 20px;
-	}
+    .add_to_cart_button {
+        height: 45px;
+        line-height: 43px;
+        padding: 0 20px;
+    }
 
-	.added_to_cart {
-		display: none;
-	}
+    .added_to_cart {
+        display: none;
+    }
 }
 
-.wooscp-area .wooscp-inner .wooscp-table .wooscp-table-inner .wooscp-table-close .wooscp-table-close-icon {
-	min-width: 48px;
-	min-height: 48px;
+.woosc-area .woosc-inner .woosc-table .woosc-table-inner .woosc-table-close .woosc-table-close-icon {
+    min-width: 48px;
+    min-height: 48px;
 }
 
-.wooscp-area .wooscp-inner .wooscp-table .wooscp-table-inner .wooscp-table-items table tbody .tr-price td {
-	font-weight: inherit;
+.woosc-area .woosc-inner .woosc-table .woosc-table-inner .woosc-table-items table tbody .tr-price td {
+    font-weight: inherit;
 }
 
-.woosw-area.woosw-area {
-	.woosw-inner {
-		.woosw-content {
-			max-width: 570px;
+.woosw-popup.woosw-popup {
+    .woosw-popup-inner {
+        .woosw-popup-content {
+            max-width: 570px;
 
-			.woosw-content-top {
-				.woosw-close {
-					@extend %NormalTransition;
-					color: #fff !important;
+            .woosw-popup-content-top {
+                .woosw-popup-close {
+                    @extend %NormalTransition;
+                    color: #fff !important;
 
-					&:after {
-						@extend %FontAwesomeLightImportant;
-						content: '\f00d' !important;
-						line-height: 48px;
-					}
+                    &:after {
+                        @extend %FontAwesomeLightImportant;
+                        content: '\f00d' !important;
+                        line-height: 48px;
+                    }
 
-					&:hover {
-						transform: rotate(90deg);
-					}
-				}
-			}
+                    &:hover {
+                        transform: rotate(90deg);
+                    }
+                }
+            }
 
-			.woosw-content-mid table.woosw-content-items .woosw-content-item .woosw-content-item--remove {
-				padding: 0 !important;
+            .woosw-popup-content-mid table.woosw-items .woosw-item .woosw-item--remove {
+                padding: 0 !important;
 
-				> span {
-					width: 30px !important;
-					height: 30px !important;
+                > span {
+                    width: 30px !important;
+                    height: 30px !important;
 
-					&:before {
-						@extend %FontAwesomeLightImportant;
-						content: '\f00d' !important;
-					}
-				}
-			}
-		}
-	}
+                    &:before {
+                        @extend %FontAwesomeLightImportant;
+                        content: '\f00d' !important;
+                    }
+                }
+            }
+        }
+    }
 
-	.woosw-content {
-		.button {
-			height: 40px !important;
-			line-height: 40px !important;
-			padding: 0 20px !important;
-		}
-	}
+    .woosw-popup-content {
+        .button {
+            height: 40px !important;
+            line-height: 40px !important;
+            padding: 0 20px !important;
+        }
+    }
 
-	.woosw-continue {
-		@extend %NormalTransition;
-	}
+    .woosw-continue {
+        @extend %NormalTransition;
+    }
 }
 
 .woosw-list,
-.woosw-area,
-.wooscp-area {
-	.woocommerce_loop_add_to_cart_wrap {
-		&:before,
-		&:after {
-			display: none;
-		}
-	}
+.woosw-popup,
+.woosc-area {
+    .woocommerce_loop_add_to_cart_wrap {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
 }
 
-.woosw-content-item--add {
-	min-width: 140px;
-	margin-top: 5px;
+.woosw-item--add {
+    min-width: 140px;
+    margin-top: 5px;
 }
 
 .wishlist-btn,
 .compare-btn {
-	&.style-01 {
-		a {
-			position: relative;
-			display: block;
-			width: 55px;
-			height: 55px;
-			border: 1px solid #111;
-			line-height: 58px;
-			font-size: 0 !important;
-			padding: 0 !important;
+    &.style-01 {
+        a {
+            position: relative;
+            display: block;
+            width: 55px;
+            height: 55px;
+            border: 1px solid #111;
+            line-height: 58px;
+            font-size: 0 !important;
+            padding: 0 !important;
 
-			&:before {
-				@extend %FontAwesomeRegularImportant;
-				font-size: 15px;
-				margin: 0;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-		}
-	}
+            &:before {
+                @extend %FontAwesomeRegularImportant;
+                font-size: 15px;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
 }
 
 .wishlist-btn {
-	&.style-01 {
-		a {
-			&:before {
-				content: '\f004';
-			}
+    &.style-01 {
+        a {
+            &:before {
+                content: '\f004';
+            }
 
-			&.woosw-added {
-				&:before {
-					font-weight: 900;
-				}
-			}
-		}
-	}
+            &.woosw-added {
+                &:before {
+                    font-weight: 900;
+                }
+            }
+        }
+    }
 }
 
 .compare-btn {
-	&.style-01 {
-		a {
-			&:before {
-				content: '\f3f1';
-			}
-		}
-	}
+    &.style-01 {
+        a {
+            &:before {
+                content: '\f3f1';
+            }
+        }
+    }
 }
 
 .wishlist-btn.style-01 .woosw-adding,
-.compare-btn.style-01 .wooscp-btn-adding {
-	&:before {
-		animation: load-spin 1s linear infinite;
-		content: '\f3f4';
-	}
+.compare-btn.style-01 .woosc-btn-adding {
+    &:before {
+        animation: load-spin 1s linear infinite;
+        content: '\f3f4';
+    }
+}
+
+// Quick Compare Table
+.woosc-quick-table {
+    margin-top: 80px;
+
+    > h2 {
+        font-size: 34px;
+        line-height: 1.31;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .woosc_table {
+        tr {
+            th, td {
+                max-width: 300px;
+
+                &:nth-child(2) {
+                    z-index: 2;
+                }
+            }
+        }
+
+        .woocommerce-product-attributes {
+            table-layout: fixed;
+
+            tr {
+                th, td {
+                    &:nth-child(2) {
+                        z-index: 1;
+                    }
+                }
+            }
+        }
+    }
 }

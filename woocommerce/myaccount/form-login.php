@@ -11,8 +11,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 4.1.0
+ * @package WooCommerce\Templates
+ * @version 7.0.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -49,13 +49,13 @@ $registration_enable = get_option( 'woocommerce_enable_myaccount_registration' )
 					<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 					<div class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-						<label for="username"><?php esc_html_e( 'Username or email address', 'billey' ); ?><span
-								class="required">*</span></label>
-						<input type="text" class="woocommerce-Input woocommerce-Input--text input-text"
-						       name="username"
+						<label for="username"><?php esc_html_e( 'Username or email address', 'billey' ); ?>
+							&nbsp;<span class="required">*</span></label>
+						<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username"
 						       id="username" autocomplete="username"
 						       value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>"/><?php // @codingStandardsIgnoreLine ?>
 					</div>
+
 					<div
 						class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide woocommerce-form-row-password">
 
@@ -84,9 +84,11 @@ $registration_enable = get_option( 'woocommerce_enable_myaccount_registration' )
 							<span><?php esc_html_e( 'Remember me', 'billey' ); ?></span>
 						</label>
 						<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-						<button type="submit" class="woocommerce-button button woocommerce-form-login__submit"
+						<button type="submit"
+						        class="woocommerce-button button woocommerce-form-login__submit<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"
 						        name="login"
 						        value="<?php esc_attr_e( 'Log in', 'billey' ); ?>"><?php esc_html_e( 'Log in', 'billey' ); ?></button>
+
 					</div>
 
 					<?php do_action( 'woocommerce_login_form_end' ); ?>
@@ -133,7 +135,7 @@ $registration_enable = get_option( 'woocommerce_enable_myaccount_registration' )
 
 						<?php else : ?>
 
-							<p><?php esc_html_e( 'A password will be sent to your email address.', 'billey' ); ?></p>
+							<p><?php esc_html_e( 'A link to set a new password will be sent to your email address.', 'billey' ); ?></p>
 
 						<?php endif; ?>
 
@@ -142,7 +144,7 @@ $registration_enable = get_option( 'woocommerce_enable_myaccount_registration' )
 						<p class="woocommerce-form-row form-row">
 							<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 							<button type="submit"
-							        class="woocommerce-Button woocommerce-button button woocommerce-form-register__submit"
+							        class="woocommerce-Button woocommerce-button button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?> woocommerce-form-register__submit"
 							        name="register"
 							        value="<?php esc_attr_e( 'Register', 'billey' ); ?>"><?php esc_html_e( 'Register', 'billey' ); ?></button>
 						</p>

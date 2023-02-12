@@ -34,7 +34,7 @@ if ( ! class_exists( 'Billey_Admin' ) ) {
 			/**
 			 * Enqueue fonts for gutenberg editor.
 			 */
-			wp_enqueue_style( 'cerebri-sans-font', BILLEY_THEME_URI . '/assets/fonts/cerebri-sans/cerebri-sans.css', null, null );
+			wp_enqueue_style( 'font-satoshi', BILLEY_THEME_URI . '/assets/fonts/satoshi/font-satoshi.min.css' );
 			wp_enqueue_style( 'futura-font', BILLEY_THEME_URI . '/assets/fonts/futura/futura.css', null, null );
 		}
 

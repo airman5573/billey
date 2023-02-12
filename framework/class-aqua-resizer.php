@@ -160,33 +160,32 @@ if ( ! class_exists( 'Aq_Resize' ) ) {
 
 						$editor = wp_get_image_editor( $img_path );
 
-						if ( is_wp_error( $editor ) || is_wp_error( $editor->resize( $width, $height, $crop ) ) ) {
-							//throw new Aq_Exception( 'Unable to get WP_Image_Editor: ' . $editor->get_error_message() . ' (is GD or ImageMagick installed?)' );
-						}
+						if ( ! is_wp_error( $editor ) && ! is_wp_error( $editor->resize( $width, $height, $crop ) ) ) {
+							$resized_file = $editor->save();
 
-						$resized_file = $editor->save();
+							if ( ! is_wp_error( $resized_file ) ) {
+								$resized_rel_path = str_replace( $upload_dir, '', $resized_file['path'] );
+								$img_url          = $upload_url . $resized_rel_path;
 
-						if ( ! is_wp_error( $resized_file ) ) {
-							$resized_rel_path = str_replace( $upload_dir, '', $resized_file['path'] );
-							$img_url          = $upload_url . $resized_rel_path;
+								// Add the resized dimensions to original image metadata (so we can delete our resized images when the original image is delete from the Media Library).
+								global $wpdb;
+								$query          = $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE guid='%s'", $url );
+								$get_attachment = $wpdb->get_results( $query );
+								if ( ! $get_attachment ) {
+									return array( 'url' => $url, 'width' => $width, 'height' => $height );
+								}
 
-							// Add the resized dimensions to original image metadata (so we can delete our resized images when the original image is delete from the Media Library).
-							global $wpdb;
-							$query          = $wpdb->prepare( "SELECT * FROM $wpdb->posts WHERE guid='%s'", $url );
-							$get_attachment = $wpdb->get_results( $query );
-							if ( ! $get_attachment ) {
-								return array( 'url' => $url, 'width' => $width, 'height' => $height );
-							}
-
-							$metadata = wp_get_attachment_metadata( $get_attachment[0]->ID );
-							if ( isset( $metadata['image_meta'] ) ) {
-								$metadata['image_meta']['resized_images'][] = $dst_w . 'x' . $dst_h;
-								wp_update_attachment_metadata( $get_attachment[0]->ID, $metadata );
+								$metadata = wp_get_attachment_metadata( $get_attachment[0]->ID );
+								if ( isset( $metadata['image_meta'] ) ) {
+									$metadata['image_meta']['resized_images'][] = $dst_w . 'x' . $dst_h;
+									wp_update_attachment_metadata( $get_attachment[0]->ID, $metadata );
+								}
+							} else {
+								//throw new Aq_Exception('Unable to save resized image file: ' . $editor->get_error_message());
 							}
 						} else {
-							//throw new Aq_Exception('Unable to save resized image file: ' . $editor->get_error_message());
+							//throw new Aq_Exception( 'Unable to get WP_Image_Editor: ' . $editor->get_error_message() . ' (is GD or ImageMagick installed?)' );
 						}
-
 					}
 				}
 

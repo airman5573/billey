@@ -10,7 +10,6 @@ use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
 use Elementor\Core\Base\Document;
-use ElementorPro\Modules\QueryControl\Module as QueryControlModule;
 use ElementorPro\Plugin;
 
 defined( 'ABSPATH' ) || exit;
@@ -52,7 +51,7 @@ class Widget_Blog extends Posts_Base {
 		return false;
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_layout_section();
 
 		$this->add_banners_section();
@@ -71,7 +70,7 @@ class Widget_Blog extends Posts_Base {
 
 		$this->add_pagination_style_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 	}
 
 	private function add_layout_section() {
@@ -173,10 +172,10 @@ class Widget_Blog extends Posts_Base {
 
 		$banner_repeater->add_control( 'template_id', [
 			'label'        => esc_html__( 'Choose Template', 'billey' ),
-			'type'         => QueryControlModule::QUERY_CONTROL_ID,
+			'type'         => Module_Query_Base::AUTOCOMPLETE_CONTROL_ID,
 			'label_block'  => true,
 			'autocomplete' => [
-				'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
+				'object' => Module_Query_Base::QUERY_OBJECT_LIBRARY_TEMPLATE,
 				'query'  => [
 					'meta_query' => [
 						[

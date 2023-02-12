@@ -26,7 +26,7 @@ class Widget_List extends Base {
 		return [ 'modern', 'icon list', 'icon', 'list' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_list_section();
 
 		$this->add_styling_section();
@@ -369,7 +369,7 @@ class Widget_List extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<#

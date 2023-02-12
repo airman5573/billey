@@ -1,0 +1,13 @@
+.rtl {
+	&.woocommerce nav.woocommerce-pagination ul li .next span:before {
+		content: "\f104";
+	}
+
+	&.woocommerce nav.woocommerce-pagination ul li .prev span:before {
+		content: "\f105";
+	}
+
+	.popup-product-quick-view .entry-summary .inner-content > .inner {
+		text-align: right;
+	}
+}

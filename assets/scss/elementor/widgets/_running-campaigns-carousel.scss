@@ -32,7 +32,7 @@
 				.desc {
 				  display: block;
 				  position: relative;
-				  font-family: CerebriSans;
+					font-family: $body-font-family;
 				  font-size: 16px;
 				  line-height: 1.75;
 				  color: #888888;
@@ -40,7 +40,7 @@
 				}
 
 				.title {
-				  font-family: Futura;
+					font-family: $secondary-font-family;
 				  font-size: 24px;
 				  font-weight: 500;
 				  color: #111111;
@@ -51,14 +51,14 @@
 
 				  .label {
 					 opacity: 0.4;
-					 font-family: CerebriSans;
+					  font-family: $body-font-family;
 					 font-size: 12px;
 					 font-weight: 500;
 					 letter-spacing: 1.38px;
 				  }
 
 				  .value {
-					 font-family: Futura;
+					  font-family: $secondary-font-family;
 					 font-size: 20px;
 					 font-weight: 500;
 					 color: #111111;
@@ -89,7 +89,7 @@
 		  .progress-number {
 			 text-align: right;
 			 opacity: 0.4;
-			 font-family: CerebriSans;
+			 font-family: $body-font-family;
 			 font-size: 12px;
 			 font-weight: 500;
 			 letter-spacing: 1.38px;

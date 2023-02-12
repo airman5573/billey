@@ -44,3 +44,24 @@ if ( ! function_exists( 'html_class' ) ) {
 		echo 'class="' . esc_attr( join( ' ', $classes ) ) . '"';
 	}
 }
+
+/**
+ * Admin notice waning minimum plugin version required.
+ *
+ * @param $plugin_name
+ * @param $plugin_version
+ */
+function billey_notice_required_plugin_version( $plugin_name, $plugin_version ) {
+	if ( isset( $_GET['activate'] ) ) {
+		unset( $_GET['activate'] );
+	}
+
+	$message = sprintf(
+		esc_html__( '%1$s requires %2$s plugin version %3$s or greater!', 'billey' ),
+		'<strong>' . BILLEY_THEME_NAME . '</strong>',
+		'<strong>' . $plugin_name . '</strong>',
+		$plugin_version
+	);
+
+	printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+}

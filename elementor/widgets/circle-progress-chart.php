@@ -30,7 +30,7 @@ class Widget_Circle_Progress_Chart extends Base {
 		return [ 'billey-widget-circle-progress' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_chart_section();
 
 		$this->add_chart_style_section();

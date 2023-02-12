@@ -21,7 +21,7 @@ class Widget_Pie_Chart extends Chart_Base {
 		return [ 'chart', 'graphic', 'pie' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_chart_section();
 
 		$this->add_chart_legend_section();

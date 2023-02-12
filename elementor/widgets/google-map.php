@@ -31,7 +31,7 @@ class Widget_Google_Map extends Base {
 		return [ 'billey-gmap3', 'billey-maps', 'billey-widget-google-map' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_map_options_section();
 
 		$this->add_map_markers_section();

@@ -20,7 +20,7 @@ abstract class Static_Carousel extends Carousel_Base {
 
 	abstract protected function print_slide();
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'slides_section', [
 			'label' => esc_html__( 'Slides', 'billey' ),
 		] );
@@ -44,7 +44,7 @@ abstract class Static_Carousel extends Carousel_Base {
 
 		$this->end_controls_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 	}
 
 	protected function get_current_slide() {

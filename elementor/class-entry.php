@@ -20,25 +20,16 @@ final class Entry {
 	 *
 	 * @var string Minimum Elementor version required to run the plugin.
 	 */
-	const MINIMUM_ELEMENTOR_VERSION = '2.0.0';
+	const MINIMUM_VERSION = '3.6.1';
 
 	/**
-	 * Maximum Elementor version that Theme compatible with
-	 *
-	 * @since 1.0.1
-	 *
-	 * @var string Maximum Elementor version required.
-	 */
-	const MAXIMUM_ELEMENTOR_VERSION = '';
-
-	/**
-	 * Minimum PHP Version
+	 * Recommended Elementor version.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @var string Minimum PHP version required to run the plugin.
 	 */
-	const MINIMUM_PHP_VERSION = '5.6';
+	const RECOMMENDED_VERSION = '3.7.5';
 
 	private static $_instance = null;
 
@@ -70,23 +61,13 @@ final class Entry {
 			return;
 		}
 
+		if ( version_compare( ELEMENTOR_VERSION, self::RECOMMENDED_VERSION, '<' ) ) {
+			add_action( 'admin_notices', [ $this, 'admin_notice_minimum_elementor_version' ] );
+		}
+
 		// Check for required Elementor version.
-		if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-			add_action( 'admin_notices', array( $this, 'admin_notice_minimum_elementor_version' ) );
-
+		if ( version_compare( ELEMENTOR_VERSION, self::MINIMUM_VERSION, '<' ) ) {
 			return;
-		}
-
-		// Check for required PHP version.
-		if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
-			add_action( 'admin_notices', array( $this, 'admin_notice_minimum_php_version' ) );
-
-			return;
-		}
-
-		// Check for max version compatible Elementor version.
-		if ( ! empty( self::MAXIMUM_ELEMENTOR_VERSION ) && version_compare( ELEMENTOR_VERSION, self::MAXIMUM_ELEMENTOR_VERSION, '>' ) ) {
-			add_action( 'admin_notices', array( $this, 'admin_notice_maximum_elementor_version' ) );
 		}
 
 		add_action( 'elementor/theme/register_locations', [ $this, 'register_theme_locations' ] );
@@ -95,14 +76,17 @@ final class Entry {
 
 		add_action( 'elementor/editor/after_enqueue_styles', array( $this, 'elementor_editor_scripts' ) );
 
+		require_once BILLEY_ELEMENTOR_DIR . '/class-fonts.php';
+		require_once BILLEY_ELEMENTOR_DIR . '/module-query.php';
+		require_once BILLEY_ELEMENTOR_DIR . '/class-control-init.php';
+
+		require_once BILLEY_ELEMENTOR_DIR . '/class-widget-utils.php';
+		require_once BILLEY_ELEMENTOR_DIR . '/class-widget-init.php';
+
 		/**
 		 * WPML supported.
 		 */
 		require_once BILLEY_ELEMENTOR_DIR . '/wpml/class-wpml-translatable-nodes.php';
-
-		require_once BILLEY_ELEMENTOR_DIR . '/class-widget-utils.php';
-		require_once BILLEY_ELEMENTOR_DIR . '/class-widget-init.php';
-		require_once BILLEY_ELEMENTOR_DIR . '/class-control-init.php';
 	}
 
 	function elementor_editor_scripts() {
@@ -192,61 +176,7 @@ final class Entry {
 			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'billey' ),
 			'<strong>' . esc_html__( 'Billey', 'billey' ) . '</strong>',
 			'<strong>' . esc_html__( 'Elementor', 'billey' ) . '</strong>',
-			self::MINIMUM_ELEMENTOR_VERSION
-		);
-
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-
-	}
-
-	/**
-	 * Admin notice
-	 *
-	 * Warning when the site use Elementor version that theme not full compatible.
-	 *
-	 * @since  1.0.0
-	 *
-	 * @access public
-	 */
-	public function admin_notice_maximum_elementor_version() {
-
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
-		}
-
-		$message = sprintf(
-		/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" is not full compatible with "%2$s". Please use %3$s.', 'billey' ),
-			'<strong>' . BILLEY_THEME_NAME . ' ' . BILLEY_THEME_VERSION . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'billey' ) . ' ' . ELEMENTOR_VERSION . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'billey' ) . ' ' . self::MAXIMUM_ELEMENTOR_VERSION . '</strong>'
-		);
-
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
-
-	}
-
-	/**
-	 * Admin notice
-	 *
-	 * Warning when the site doesn't have a minimum required PHP version.
-	 *
-	 * @since  1.0.0
-	 *
-	 * @access public
-	 */
-	public function admin_notice_minimum_php_version() {
-
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
-		}
-
-		$message = sprintf(
-		/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'billey' ),
-			'<strong>' . esc_html__( 'Billey', 'billey' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'billey' ) . '</strong>',
-			self::MINIMUM_PHP_VERSION
+			self::MINIMUM_VERSION
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );

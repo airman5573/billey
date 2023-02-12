@@ -27,7 +27,7 @@ class Widget_Image_Layers extends Base {
 		return [ 'image', 'photo', 'visual', 'layer' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_artboard_section();
 
 		$this->add_layers_section();

@@ -45,7 +45,7 @@ class Widget_Gif_Player extends Base {
 		return [ 'image', 'gif', 'player' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_image_section();
 	}
 

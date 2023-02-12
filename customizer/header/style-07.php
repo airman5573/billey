@@ -69,6 +69,19 @@ Billey_Kirki::add_field( 'theme', array(
 	),
 ) );
 
+Billey_Kirki::add_field( 'theme', array(
+	'type'     => 'radio-buttonset',
+	'settings' => $prefix . 'my_account_enable',
+	'label'    => esc_html__( 'My account', 'billey' ),
+	'section'  => $section,
+	'priority' => $priority++,
+	'default'  => '0',
+	'choices'  => array(
+		'0' => esc_html__( 'Hide', 'billey' ),
+		'1' => esc_html__( 'Show', 'billey' ),
+	),
+) );
+
 Billey_Customize::instance()->field_social_networks_enable( array(
 	'settings' => $prefix . 'social_networks_enable',
 	'section'  => $section,

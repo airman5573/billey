@@ -36,7 +36,7 @@ class Widget_Testimonial_Carousel extends Static_Carousel
 		return ['testimonial', 'carousel'];
 	}
 
-	protected function _register_controls()
+	protected function register_controls()
 	{
 		$this->add_layout_section();
 
@@ -46,7 +46,7 @@ class Widget_Testimonial_Carousel extends Static_Carousel
 
 		$this->add_image_style_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 
 		$this->update_controls();
 	}

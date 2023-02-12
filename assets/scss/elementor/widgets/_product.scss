@@ -108,7 +108,7 @@
 
 		.quick-view-icon,
 		.woosw-btn,
-		.wooscp-btn {
+		.woosc-btn {
 			flex-shrink: 0;
 			position: relative;
 			display: block;
@@ -128,7 +128,7 @@
 			}
 		}
 
-		.wooscp-btn {
+		.woosc-btn {
 			&:before {
 				content: '\f3f1';
 			}
@@ -160,7 +160,7 @@
 		}
 
 		.woosw-adding,
-		.wooscp-btn-adding {
+		.woosc-btn-adding {
 			&:before {
 				animation: load-spin 1s linear infinite !important;
 				content: '\f3f4' !important;

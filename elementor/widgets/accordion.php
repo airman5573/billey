@@ -31,7 +31,7 @@ class Widget_Accordion extends Base {
 		return [ 'billey-widget-accordion' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
 		$this->add_styling_section();
@@ -408,7 +408,7 @@ class Widget_Accordion extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<#

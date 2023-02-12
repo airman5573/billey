@@ -26,7 +26,7 @@ class Widget_Social_Networks extends Base {
 		return [ 'social', 'networks' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
 		$this->add_style_section();
@@ -489,7 +489,7 @@ class Widget_Social_Networks extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<div class="tm-social-networks style-{{ settings.style }} layout-{{ settings.layout }}">

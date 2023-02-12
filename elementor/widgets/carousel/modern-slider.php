@@ -27,10 +27,10 @@ class Widget_Modern_Slider extends Carousel_Base {
 		return [ 'modern', 'slider' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 
 		$this->update_controls();
 	}

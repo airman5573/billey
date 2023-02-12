@@ -25,7 +25,7 @@ class Widget_Button extends Base {
 		return 'eicon-button';
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_button_settings_section();
 
 		$this->add_button_badge_section();
@@ -534,7 +534,7 @@ class Widget_Button extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		// @formatter:off
 		?>
 		<#

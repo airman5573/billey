@@ -26,7 +26,7 @@ class Widget_Client_Logo extends Static_Grid {
 		return [ 'client', 'logo', 'brand' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'content_section', [
 			'label' => esc_html__( 'Content', 'billey' ),
 		] );
@@ -45,7 +45,7 @@ class Widget_Client_Logo extends Static_Grid {
 
 		$this->end_controls_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 
 		$this->update_control( 'grid_columns', [
 			'default' => 4,

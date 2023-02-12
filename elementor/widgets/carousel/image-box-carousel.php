@@ -34,11 +34,11 @@ class Widget_Image_Box_Carousel extends Carousel_Base
 		return ['carousel', 'slider', 'image-box', 'image carousel'];
 	}
 
-	protected function _register_controls()
+	protected function register_controls()
 	{
 		$this->add_content_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 
 		$this->update_controls();
 	}

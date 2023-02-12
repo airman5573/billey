@@ -4,10 +4,7 @@ namespace Billey_Elementor;
 
 use Elementor\Controls_Manager;
 use Elementor\Repeater;
-use Elementor\Group_Control_Typography;
-use Elementor\Icons_Manager;
 use Elementor\Core\Base\Document;
-use ElementorPro\Modules\QueryControl\Module as QueryControlModule;
 use ElementorPro\Plugin;
 
 defined( 'ABSPATH' ) || exit;
@@ -38,7 +35,7 @@ class Widget_Tabs extends Base {
 		return false;
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 	}
 
@@ -102,10 +99,10 @@ class Widget_Tabs extends Base {
 
 		$repeater->add_control( 'template_id', [
 			'label'        => esc_html__( 'Choose Template', 'billey' ),
-			'type'         => QueryControlModule::QUERY_CONTROL_ID,
+			'type'         => Module_Query_Base::AUTOCOMPLETE_CONTROL_ID,
 			'label_block'  => true,
 			'autocomplete' => [
-				'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
+				'object' => Module_Query_Base::QUERY_OBJECT_LIBRARY_TEMPLATE,
 				'query'  => [
 					'meta_query' => [
 						[

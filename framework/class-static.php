@@ -3,7 +3,7 @@ defined( 'ABSPATH' ) || exit;
 
 class Billey {
 
-	const PRIMARY_FONT     = 'CerebriSans, sans-serif';
+	const PRIMARY_FONT     = 'Satoshi, sans-serif';
 	const SECONDARY_FONT   = 'Futura, sans-serif';
 	const PRIMARY_COLOR    = '#5758e0';
 	const SECONDARY_COLOR  = '#f77991';

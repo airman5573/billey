@@ -30,11 +30,11 @@
 						var vivus = new Vivus( $svg[ 0 ], options, Callback );
 
 						if ( 'yes' === settings.play_on_hover ) {
-							$element.hover( function() {
+							$element.on( 'mouseenter', function() {
 								vivus.stop()
 								     .reset()
 								     .play( 2 );
-							}, function() {
+							} ).on( 'mouseleave', function() {
 								//vivus.finish();
 							} );
 						}

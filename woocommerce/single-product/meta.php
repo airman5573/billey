@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 ?>
-<div class="entry-product-meta">
+<div class="entry-product-meta product_meta">
 
 	<?php do_action( 'woocommerce_product_meta_start' ); ?>
 

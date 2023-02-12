@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 4.4.0
+ * @version 7.0.1
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -24,14 +24,14 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 		<thead>
-		<tr>
-			<th class="product-thumbnail"><?php esc_html_e( 'Product', 'billey' ); ?></th>
-			<th class="product-name">&nbsp;</th>
-			<th class="product-price"><?php esc_html_e( 'Price', 'billey' ); ?></th>
-			<th class="product-quantity"><?php esc_html_e( 'Quantity', 'billey' ); ?></th>
-			<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'billey' ); ?></th>
-			<th class="product-remove">&nbsp;</th>
-		</tr>
+			<tr>
+				<th class="product-thumbnail"><?php esc_html_e( 'Product', 'billey' ); ?></th>
+				<th class="product-name">&nbsp;</th>
+				<th class="product-price"><?php esc_html_e( 'Price', 'billey' ); ?></th>
+				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'billey' ); ?></th>
+				<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'billey' ); ?></th>
+				<th class="product-remove">&nbsp;</th>
+			</tr>
 		</thead>
 		<tbody>
 		<?php do_action( 'woocommerce_before_cart_contents' ); ?>
@@ -57,7 +57,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 					</td>
 
-					<td class="product-name">
+					<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'billey' ); ?>">
 						<?php
 						// Billey Edited Code.
 						if ( ! $product_permalink ) {
@@ -151,7 +151,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 								<input type="text" name="coupon_code" class="input-text" id="coupon_code" value=""
 								       placeholder="<?php esc_attr_e( 'Coupon code', 'billey' ); ?>"/>
 
-								<button type="submit" class="button" name="apply_coupon"
+								<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon"
 								        value="<?php esc_attr_e( 'Apply coupon', 'billey' ); ?>"><?php esc_html_e( 'Apply coupon', 'billey' ); ?></button>
 
 								<?php do_action( 'woocommerce_cart_coupon' ); ?>
@@ -165,8 +165,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 							<?php esc_html_e( 'Empty cart', 'billey' ); ?>
 						</a>
 
-						<button type="submit" class="button" name="update_cart"
-						        value="<?php esc_attr_e( 'Update cart', 'billey' ); ?>"><?php esc_html_e( 'Update cart', 'billey' ); ?></button>
+						<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'billey' ); ?>"><?php esc_html_e( 'Update cart', 'billey' ); ?></button>
 
 						<?php do_action( 'woocommerce_cart_actions' ); ?>
 

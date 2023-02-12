@@ -26,7 +26,7 @@ class Widget_Icon extends Base {
 		return [ 'icon' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_icon_section();
 
 		$this->add_icon_style_section();
@@ -275,7 +275,7 @@ class Widget_Icon extends Base {
 		<?php
 	}
 
-	protected function _content_template() {
+	protected function content_template() {
 		$id = uniqid( 'svg-gradient' );
 		// @formatter:off
 		?>

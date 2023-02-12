@@ -31,14 +31,14 @@ class Widget_Portfolio_Carousel extends Posts_Carousel_Base {
 		return 'portfolio';
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_layout_section();
 
 		$this->add_thumbnail_style_section();
 
 		$this->add_caption_style_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 
 		$this->update_controls();
 	}

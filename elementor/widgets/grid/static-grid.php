@@ -18,7 +18,7 @@ abstract class Static_Grid extends Grid_Base {
 
 	abstract protected function print_grid_item();
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->start_controls_section( 'items_section', [
 			'label' => esc_html__( 'Items', 'billey' ),
 		] );
@@ -37,7 +37,7 @@ abstract class Static_Grid extends Grid_Base {
 
 		$this->end_controls_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 	}
 
 	protected function print_grid_items( array $settings ) {

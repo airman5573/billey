@@ -283,7 +283,7 @@
 
 				if ( sliderSettings.reinitOnResize ) {
 					var resizeTimer;
-					$( window ).resize( function() {
+					$( window ).on( 'resize', function() {
 						clearTimeout( resizeTimer );
 
 						resizeTimer = setTimeout( function() {
@@ -335,9 +335,9 @@
 
 				// Disabled auto play when focus.
 				if ( sliderSettings.pauseOnHover ) {
-					$sliderContainer.hover( function() {
+					$sliderContainer.on( 'mouseenter', function() {
 						$swiper.autoplay.stop();
-					}, function() {
+					} ).on( 'mouseleave', function() {
 						$swiper.autoplay.start();
 					} );
 				}

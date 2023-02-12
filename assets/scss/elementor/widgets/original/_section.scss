@@ -1,6 +1,43 @@
+.elementor-row {
+	flex-wrap: wrap;
+}
+
+/**
+ * Re-apply gap to other element.
+ * Apply gap to .elementor-element-populated instead of .elementor-widget-wrap
+ */
+.elementor-container {
+	&.elementor-container { // Strong selector to override style.
+		> .elementor-row > .elementor-column > .elementor-element-populated {
+			> .elementor-widget-wrap {
+				padding: 0;
+			}
+		}
+	}
+
+	&.elementor-column-gap-narrow > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding: 0 5px;
+	}
+
+	&.elementor-column-gap-default > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding: 0 10px;
+	}
+
+	&.elementor-column-gap-extended > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding: 0 15px;
+	}
+
+	&.elementor-column-gap-wide > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding: 0 20px;
+	}
+
+	&.elementor-column-gap-wider > .elementor-row > .elementor-column > .elementor-element-populated {
+		padding: 0 30px;
+	}
+}
+
 /* Remove Gap Beside Of Section */
 .elementor-section-gap-beside-no {
-
 	> .elementor-container {
 		> .elementor-row {
 			flex-grow: 1;
@@ -97,5 +134,5 @@
 }*/
 
 .elementor-editor-active .elementor.elementor-edit-area-active .elementor-inner-section:first-child > .elementor-element-overlay > .elementor-editor-section-settings {
-	transform: translateX(-50%) translateX(100px) translateY(-100%)
+	transform: translateX(-50%) translateX(100px) translateY(-100%);
 }

@@ -1,0 +1,23 @@
+.rtl {
+	.portfolio-overlay-flat .post-overlay-icon {
+		.fa-arrow-right:before {
+			content: "\f060";
+		}
+	}
+
+	.portfolio-nav-links.style-01 .next h6:before {
+		content: '\f060';
+	}
+
+	.portfolio-nav-links.style-01 .prev h6:before {
+		content: '\f061';
+	}
+
+	.billey-case-study-carousel.style-rtl .slide-layers {
+		padding: 0 40px 0 0;
+	}
+
+	.tm-image-box.style-04 .content-wrap {
+		padding: 5px 40px 40px 0;
+	}
+}

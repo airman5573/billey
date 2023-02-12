@@ -1,0 +1,31 @@
+.rtl {
+	.comment-nav-links li .next span,
+	.page-pagination li .next span {
+		&:before {
+			content: "\f104";
+		}
+	}
+
+	.comment-nav-links li .prev span,
+	.page-pagination li .prev span {
+		&:before {
+			content: "\f105";
+		}
+	}
+
+	blockquote {
+		border-left: 0 !important;
+	}
+
+	.nav-links .previous div span:before {
+		content: "\f061";
+	}
+
+	.nav-links .next div span:before {
+		content: "\f060";
+	}
+
+	&.single-blog-style-modern .post-return-archive:before {
+		content: "\f061";
+	}
+}

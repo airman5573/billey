@@ -28,12 +28,12 @@ class Widget_Modern_Carousel extends Carousel_Base {
 		return [ 'modern', 'carousel' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 
 		$this->add_style_section();
 
-		parent::_register_controls();
+		parent::register_controls();
 	}
 
 	private function add_content_section() {

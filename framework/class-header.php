@@ -233,6 +233,34 @@ if ( ! class_exists( 'Billey_Header' ) ) {
 			<?php
 		}
 
+		/**
+		 * @since 1.5.2
+		 */
+		public function print_my_account_button() {
+			$header_type = Billey_Global::instance()->get_header_type();
+			$enable      = Billey::setting( "header_style_{$header_type}_my_account_enable" );
+			if ( '1' !== $enable ) {
+				return;
+			}
+
+			$my_account_link = '';
+
+			if ( function_exists( 'wc_get_page_permalink' ) ) {
+				$my_account_link = wc_get_page_permalink( 'myaccount' );
+			}
+
+			$my_account_link = apply_filters( 'billey_header_my_account_url', $my_account_link );
+
+			if ( empty( $my_account_link ) ) {
+				return;
+			}
+			?>
+			<div class="header-icon page-open-my-account">
+				<a href="<?php echo esc_url( $my_account_link ); ?>"><i class="far fa-user"></i></a>
+			</div>
+			<?php
+		}
+
 		public function print_button( $args = array() ) {
 			$header_type = Billey_Global::instance()->get_header_type();
 

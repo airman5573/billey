@@ -25,7 +25,7 @@ class Widget_Shapes extends Base {
 		return [ 'shapes' ];
 	}
 
-	protected function _register_controls() {
+	protected function register_controls() {
 		$this->add_content_section();
 	}
 

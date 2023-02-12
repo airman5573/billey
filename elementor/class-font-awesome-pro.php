@@ -30,8 +30,8 @@ class Font_Awesome_Pro {
 	}
 
 	public function replace_font_awesome_pro( $settings ) {
-		$json_url = BILLEY_ELEMENTOR_ASSETS . '/libs/font-awesome-pro/%s.json';
-		$version  = '5.10.0-pro';
+		$json_url = BILLEY_ELEMENTOR_ASSETS . '/libs/font-awesome-pro/%s.js';
+		$version  = '5.15.4-pro';
 
 		$icons['fa-regular'] = [
 			'name'          => 'fa-regular',
@@ -97,7 +97,7 @@ class Font_Awesome_Pro {
 	}
 
 	function admin_enqueue_scripts() {
-		wp_enqueue_style( 'font-awesome-pro', BILLEY_THEME_URI . '/assets/fonts/awesome/css/fontawesome-all.min.css', null, '5.10.0' );
+		wp_enqueue_style( 'font-awesome-pro', BILLEY_THEME_URI . '/assets/fonts/awesome/css/fontawesome-all.min.css', null, '5.15.4' );
 	}
 }
 
