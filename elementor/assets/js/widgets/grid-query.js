@@ -235,8 +235,6 @@
           data: _data,
           dataType: "json",
           success: function (results) {
-            console.log("results", results);
-
             if (results.max_num_pages) {
               setQuery("max_num_pages", results.max_num_pages);
             }
@@ -260,7 +258,7 @@
             $paginationWrapper.empty();
             $paginationWrapper.append(results.pagination);
 
-            // event handler 다시 달아야 한다
+            // pagination에 event handler 다시 달아야 한다
             handlerPagination();
 
             var foundPosts = getQuery("found_posts");
@@ -415,7 +413,8 @@
       $el.on("BilleyBeginQuery", function () {
         // Reset to first page.
         setQueryVars("paged", 1);
-        handlerQuery(true);
+        // handlerQuery(true);
+        handlerPaginationQuery();
       });
     });
   };
