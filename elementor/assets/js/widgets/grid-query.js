@@ -145,6 +145,21 @@
           setQueryVars("paged", paged);
           handlerQuery(true);
         });
+      } else if ($el.data("pagination") === "numbers") {
+        $el.find(".page-numbers").on("click", (e) => {
+          e.preventDefault();
+
+          if (!isQuerying) {
+            $(this).hide();
+
+            var paged = getQueryVars("paged");
+            paged++;
+
+            setQueryVars("source", "custom_query");
+            setQueryVars("paged", paged);
+            handlerQuery();
+          }
+        });
       }
     }
 
@@ -161,7 +176,7 @@
       var oldST = 0;
 
       // On scroll.
-      $(window).on("scroll", function () {
+      $(window).scroll(function () {
         var st = $(this).scrollTop();
         // Scroll down & in view.
         if (st > oldST && st >= finalOffset) {
@@ -212,6 +227,13 @@
 
       setTimeout(function () {
         var query = jQuery.parseJSON($queryInput.val());
+
+        const currentFilter = $(".btn-filter.current").attr("data-filter");
+        if (currentFilter === "*") {
+          const term_slug = currentFilter;
+          console.log("term_slug", term_slug);
+        }
+
         var _data = $.param(query);
 
         $.ajax({
