@@ -157,7 +157,13 @@
 
             setQueryVars("source", "custom_query");
             setQueryVars("paged", paged);
-            handlerQuery();
+
+            const currentFilter = $(".btn-filter.current").attr("data-filter");
+            if (currentFilter !== "*") {
+              setQueryVars("extra_tax_query", currentFilter);
+            }
+
+            handlerQuery(true);
           }
         });
       }
@@ -227,13 +233,6 @@
 
       setTimeout(function () {
         var query = jQuery.parseJSON($queryInput.val());
-
-        const currentFilter = $(".btn-filter.current").attr("data-filter");
-        if (currentFilter === "*") {
-          const term_slug = currentFilter;
-          console.log("term_slug", term_slug);
-        }
-
         var _data = $.param(query);
 
         $.ajax({
