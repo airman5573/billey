@@ -47,10 +47,12 @@
             setQueryVars("extra_tax_query", filterValue);
           }
 
-          $el.trigger("BilleyBeginQuery");
+          // $el.trigger("BilleyBeginQuery");
 
           $self.siblings().removeClass("current");
           $self.addClass("current");
+
+          handlerPaginationQuery();
         });
     }
 
@@ -413,8 +415,7 @@
       $el.on("BilleyBeginQuery", function () {
         // Reset to first page.
         setQueryVars("paged", 1);
-        // handlerQuery(true);
-        handlerPaginationQuery();
+        handlerQuery(true);
       });
     });
   };
