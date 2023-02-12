@@ -155,6 +155,8 @@
             const { currentTarget } = e;
             let { href } = currentTarget;
 
+            console.log("href", href);
+
             const urlParams = new URLSearchParams(href);
             const paged = urlParams.get("paged") || 1;
 
