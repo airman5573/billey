@@ -218,7 +218,7 @@
       });
     }
 
-    function handlerPaginationQuery(reset) {
+    function handlerPaginationQuery() {
       isQuerying = true;
 
       setTimeout(function () {
@@ -248,9 +248,7 @@
             var html = results.template;
             var $newItems = $(html);
 
-            if (reset === true) {
-              $grid.children(".grid-item").remove();
-            }
+            $grid.empty();
 
             $el.trigger("BilleyQueryEnd", [$el, $newItems]);
 
