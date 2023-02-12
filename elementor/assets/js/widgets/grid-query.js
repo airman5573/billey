@@ -248,7 +248,7 @@
             var html = results.template;
             var $newItems = $(html);
 
-            $grid.empty();
+            $grid.children(".grid-item").remove();
 
             $el.trigger("BilleyQueryEnd", [$el, $newItems]);
 
