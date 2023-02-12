@@ -254,7 +254,7 @@
 
             $el.trigger("BilleyQueryEnd", [$el, $newItems]);
 
-            handlerQueryEnd();
+            handlerQueryEnd(true);
 
             isQuerying = false;
           },
