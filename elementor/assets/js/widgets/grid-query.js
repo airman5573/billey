@@ -146,17 +146,19 @@
           handlerQuery(true);
         });
       } else if ($el.data("pagination") === "numbers") {
-        $el.find(".page-numbers").on("click", (e) => {
+        $el.find(".page-pagination a").on("click", (e) => {
           e.preventDefault();
 
           if (!isQuerying) {
             $(this).hide();
 
             const { currentTarget } = e;
-            let { innerText: paged } = currentTarget;
-            if (paged === "Prev") {
-              $("");
-            }
+            let { href } = currentTarget;
+
+            const urlParams = new URLSearchParams(href);
+            const paged = urlParams.get("paged") || 1;
+
+            alert(paged);
 
             setQueryVars("source", "custom_query");
             setQueryVars("paged", paged);
