@@ -170,7 +170,7 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
 			$response['template'] = $template;
 
-      $response['pagination'] = Billey_Templates::paging_nav($billey_query);
+      $response['pagination'] = \Billey_Templates::paging_nav($billey_query);
 
       // pagination도 돌려준다
 
