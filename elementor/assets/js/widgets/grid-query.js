@@ -232,8 +232,6 @@
           data: _data,
           dataType: "json",
           success: function (results) {
-            console.log("results", results);
-
             if (results.max_num_pages) {
               setQuery("max_num_pages", results.max_num_pages);
             }
@@ -252,6 +250,10 @@
             $grid.children(".grid-item").remove();
 
             $el.trigger("BilleyQueryEnd", [$el, $newItems]);
+
+            const $paginationWrapper = $(".pagination-wrapper");
+            $paginationWrapper.empty();
+            $paginationWrapper.append(results.pagination);
 
             var foundPosts = getQuery("found_posts");
             var paged = getQueryVars("paged");
