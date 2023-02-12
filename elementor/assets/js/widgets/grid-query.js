@@ -254,6 +254,7 @@
             const $paginationWrapper = $(".pagination-wrapper");
             $paginationWrapper.empty();
             $paginationWrapper.append(results.pagination);
+            handlerPagination();
 
             var foundPosts = getQuery("found_posts");
             var paged = getQueryVars("paged");

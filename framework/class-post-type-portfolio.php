@@ -172,8 +172,6 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
 			$response['template'] = $template;
 
-
-
       ob_start();
       $args  = array(
         'base'      => html_entity_decode( get_pagenum_link() ),
