@@ -138,6 +138,8 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
 			$billey_query = new WP_Query( $query_vars );
 
+      do_action( 'qm/debug', $billey_query );
+
 			$settings = isset( $_POST['settings'] ) ? $_POST['settings'] : array();
 
 			$response = array(
@@ -170,11 +172,31 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
 			$response['template'] = $template;
 
-      $p_nav = \Billey_Templates::paging_nav($billey_query);
-      // do_action( 'qm/debug',  $p_nav);
+      ob_start();
+
+      $args  = array(
+        'total'     => $billey_query->max_num_pages,
+        'current'   => max( 1, $query_vars['paged'] ),
+        'mid_size'  => 1,
+        'prev_text' => '<span class="fas fa-angle-left"></span>' . esc_html__( 'Prev', 'billey' ),
+        'next_text' => esc_html__( 'Next', 'billey' ) . '<span class="fas fa-angle-right"></span>',
+        'type'      => 'array',
+      );
+      $pages = paginate_links( $args );
+  
+      if ( is_array( $pages ) ) {
+        echo '<ul class="page-pagination">';
+        foreach ( $pages as $page ) {
+          printf( '<li>%s</li>', $page );
+        }
+        echo '</ul>';
+      }
+
+      $pagination = ob_get_contents();
+      ob_clean();
 
       // pagination도 돌려준다
-      // $response['pagination'] = \Billey_Templates::paging_nav($billey_query);
+      $response['pagination'] = $pagination;
 
 			echo json_encode( $response );
 

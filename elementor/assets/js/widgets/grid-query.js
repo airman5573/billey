@@ -223,6 +223,7 @@
 
       setTimeout(function () {
         var query = jQuery.parseJSON($queryInput.val());
+        console.log("query", query);
         var _data = $.param(query);
 
         $.ajax({
