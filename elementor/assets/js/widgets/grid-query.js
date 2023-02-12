@@ -153,7 +153,10 @@
             $(this).hide();
 
             const { currentTarget } = e;
-            const { innerText: paged } = currentTarget;
+            let { innerText: paged } = currentTarget;
+            if (paged === "Prev") {
+              $("");
+            }
 
             setQueryVars("source", "custom_query");
             setQueryVars("paged", paged);
