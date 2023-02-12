@@ -129,6 +129,8 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 		}
 
 		public function infinite_load() {
+      global $wp_rewrite;
+
 			$source     = isset( $_POST['source'] ) ? $_POST['source'] : '';
 			$query_vars = $_POST['query_vars'];
 
@@ -137,8 +139,6 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 			}
 
 			$billey_query = new WP_Query( $query_vars );
-
-      do_action( 'qm/debug', $billey_query );
 
 			$settings = isset( $_POST['settings'] ) ? $_POST['settings'] : array();
 
@@ -172,14 +172,75 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
 			$response['template'] = $template;
 
+
+
+
+      // pagination
       ob_start();
-      $this->paging_nav($billey_query);
+      // Don't print empty markup if there's only one page.
+      if ( $billey_query->max_num_pages >= 2 ) {
+        if ( get_query_var( 'paged' ) ) {
+          $paged = get_query_var( 'paged' );
+        } elseif ( get_query_var( 'page' ) ) {
+          $paged = get_query_var( 'page' );
+        } else {
+          $paged = 1;
+        }
+    
+        $page_num_link = html_entity_decode( get_pagenum_link() );
+        $query_args    = array();
+        $url_parts     = explode( '?', $page_num_link );
+    
+        if ( isset( $url_parts[1] ) ) {
+          wp_parse_str( $url_parts[1], $query_args );
+        }
+    
+        $page_num_link = esc_url( remove_query_arg( array_keys( $query_args ), $page_num_link ) );
+        $page_num_link = trailingslashit( $page_num_link ) . '%_%';
+    
+        $format = '';
+        if ( $wp_rewrite->using_index_permalinks() && ! strpos( $page_num_link, 'index.php' ) ) {
+          $format = 'index.php/';
+        }
+        if ( $wp_rewrite->using_permalinks() ) {
+          $format .= user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' );
+        } else {
+          $format .= '?paged=%#%';
+        }
+    
+        // Set up paginated links.
+    
+        $args  = array(
+          'base'      => $page_num_link,
+          'format'    => $format,
+          'total'     => $billey_query->max_num_pages,
+          'current'   => max( 1, $paged ),
+          'mid_size'  => 1,
+          'add_args'  => array_map( 'urlencode', $query_args ),
+          'prev_text' => '<span class="fas fa-angle-left"></span>' . esc_html__( 'Prev', 'billey' ),
+          'next_text' => esc_html__( 'Next', 'billey' ) . '<span class="fas fa-angle-right"></span>',
+          'type'      => 'array',
+        );
+        $pages = paginate_links( $args );
+    
+        if ( is_array( $pages ) ) { ?>
+          <ul class="page-pagination"> <?php
+          foreach ( $pages as $page ) { ?>
+            <li><?php echo $page; ?></li> <?php
+          } ?>
+          </ul> <?php
+        }
+      }
+      
 
       $pagination = ob_get_contents();
       ob_clean();
 
       // pagination도 돌려준다
       $response['pagination'] = $pagination;
+
+
+
 
 			echo json_encode( $response );
 
@@ -463,70 +524,6 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 			<?php
 			return ob_get_clean();
 		}
-
-    function paging_nav( $query = false ) {
-      global $wp_query, $wp_rewrite;
-      if ( $query === false ) {
-        $query = $wp_query;
-      }
-  
-      // Don't print empty markup if there's only one page.
-      if ( $query->max_num_pages < 2 ) {
-        return;
-      }
-  
-      if ( get_query_var( 'paged' ) ) {
-        $paged = get_query_var( 'paged' );
-      } elseif ( get_query_var( 'page' ) ) {
-        $paged = get_query_var( 'page' );
-      } else {
-        $paged = 1;
-      }
-  
-      $page_num_link = html_entity_decode( get_pagenum_link() );
-      $query_args    = array();
-      $url_parts     = explode( '?', $page_num_link );
-  
-      if ( isset( $url_parts[1] ) ) {
-        wp_parse_str( $url_parts[1], $query_args );
-      }
-  
-      $page_num_link = esc_url( remove_query_arg( array_keys( $query_args ), $page_num_link ) );
-      $page_num_link = trailingslashit( $page_num_link ) . '%_%';
-  
-      $format = '';
-      if ( $wp_rewrite->using_index_permalinks() && ! strpos( $page_num_link, 'index.php' ) ) {
-        $format = 'index.php/';
-      }
-      if ( $wp_rewrite->using_permalinks() ) {
-        $format .= user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' );
-      } else {
-        $format .= '?paged=%#%';
-      }
-  
-      // Set up paginated links.
-  
-      $args  = array(
-        'base'      => $page_num_link,
-        'format'    => $format,
-        'total'     => $query->max_num_pages,
-        'current'   => max( 1, $paged ),
-        'mid_size'  => 1,
-        'add_args'  => array_map( 'urlencode', $query_args ),
-        'prev_text' => '<span class="fas fa-angle-left"></span>' . esc_html__( 'Prev', 'billey' ),
-        'next_text' => esc_html__( 'Next', 'billey' ) . '<span class="fas fa-angle-right"></span>',
-        'type'      => 'array',
-      );
-      $pages = paginate_links( $args );
-  
-      if ( is_array( $pages ) ) { ?>
-        <ul class="page-pagination"> <?php
-        foreach ( $pages as $page ) { ?>
-          <li><?php echo $page; ?></li> <?php
-        } ?>
-        </ul> <?php
-      }
-    }
 	}
 
 	Billey_Portfolio::instance()->initialize();
