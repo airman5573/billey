@@ -256,7 +256,29 @@
             const $paginationWrapper = $(".pagination-wrapper");
             $paginationWrapper.empty();
             $paginationWrapper.append(results.pagination);
-            handlerPagination();
+
+            $el.find(".page-numbers").on("click", (e) => {
+              e.preventDefault();
+
+              if (!isQuerying) {
+                $(this).hide();
+
+                var paged = getQueryVars("paged");
+                paged++;
+
+                setQueryVars("source", "custom_query");
+                setQueryVars("paged", paged);
+
+                const currentFilter = $(".btn-filter.current").attr(
+                  "data-filter"
+                );
+                if (currentFilter !== "*") {
+                  setQueryVars("extra_tax_query", currentFilter);
+                }
+
+                handlerPaginationQuery();
+              }
+            });
 
             var foundPosts = getQuery("found_posts");
             var paged = getQueryVars("paged");
