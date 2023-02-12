@@ -178,33 +178,11 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
       ob_start();
       
       $paged = $query_vars['paged'];
-
-      $page_num_link = html_entity_decode( get_pagenum_link() );
-      $query_args    = array();
-      $url_parts     = explode( '?', $page_num_link );
-
-      if ( isset( $url_parts[1] ) ) {
-        wp_parse_str( $url_parts[1], $query_args );
-      }
-
-      $page_num_link = esc_url( remove_query_arg( array_keys( $query_args ), $page_num_link ) );
-      $page_num_link = trailingslashit( $page_num_link ) . '%_%';
-
-      $format = '';
-      if ( $wp_rewrite->using_index_permalinks() && ! strpos( $page_num_link, 'index.php' ) ) {
-        $format = 'index.php/';
-      }
-      if ( $wp_rewrite->using_permalinks() ) {
-        $format .= user_trailingslashit( $wp_rewrite->pagination_base . '/%#%', 'paged' );
-      } else {
-        $format .= '?paged=%#%';
-      }
-
       // Set up paginated links.
 
       $args  = array(
-        'base'      => $page_num_link,
-        'format'    => $format,
+        'base'      => '',
+        'format'    => '/paged/%#%',
         'total'     => $billey_query->max_num_pages,
         'current'   => max( 1, $paged ),
         'mid_size'  => 1,
