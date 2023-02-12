@@ -152,11 +152,12 @@
           if (!isQuerying) {
             $(this).hide();
 
-            var paged = getQueryVars("paged");
-            paged++;
+            const { currentTarget } = e;
+            const innerText = currentTarget.innerText;
+            console.log("innerText", innerText);
 
             setQueryVars("source", "custom_query");
-            setQueryVars("paged", paged);
+            setQueryVars("paged", 2);
 
             const currentFilter = $(".btn-filter.current").attr("data-filter");
             if (currentFilter !== "*") {
@@ -258,30 +259,7 @@
             $paginationWrapper.append(results.pagination);
 
             // event handler 다시 달아야 한다
-            $el.find(".page-numbers").on("click", (e) => {
-              e.preventDefault();
-
-              if (!isQuerying) {
-                $(this).hide();
-
-                var paged = getQueryVars("paged");
-                paged++;
-
-                console.log("paged", paged);
-
-                setQueryVars("source", "custom_query");
-                setQueryVars("paged", paged);
-
-                const currentFilter = $(".btn-filter.current").attr(
-                  "data-filter"
-                );
-                if (currentFilter !== "*") {
-                  setQueryVars("extra_tax_query", currentFilter);
-                }
-
-                handlerPaginationQuery();
-              }
-            });
+            handlerPagination();
 
             var foundPosts = getQuery("found_posts");
             var paged = getQueryVars("paged");
