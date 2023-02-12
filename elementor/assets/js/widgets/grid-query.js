@@ -257,6 +257,7 @@
             $paginationWrapper.empty();
             $paginationWrapper.append(results.pagination);
 
+            // event handler 다시 달아야 한다
             $el.find(".page-numbers").on("click", (e) => {
               e.preventDefault();
 
@@ -265,6 +266,8 @@
 
                 var paged = getQueryVars("paged");
                 paged++;
+
+                console.log("paged", paged);
 
                 setQueryVars("source", "custom_query");
                 setQueryVars("paged", paged);
