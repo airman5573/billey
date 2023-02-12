@@ -232,6 +232,8 @@
           data: _data,
           dataType: "json",
           success: function (results) {
+            console.log("results", results);
+
             if (results.max_num_pages) {
               setQuery("max_num_pages", results.max_num_pages);
             }
