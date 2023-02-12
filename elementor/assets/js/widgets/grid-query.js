@@ -152,12 +152,13 @@
           if (!isQuerying) {
             $(this).hide();
 
-            const { currentTarget } = e;
-            const innerText = currentTarget.innerText;
-            console.log("innerText", innerText);
+            console.log("e", e);
+
+            var paged = getQueryVars("paged");
+            paged++;
 
             setQueryVars("source", "custom_query");
-            setQueryVars("paged", 2);
+            setQueryVars("paged", paged);
 
             const currentFilter = $(".btn-filter.current").attr("data-filter");
             if (currentFilter !== "*") {
