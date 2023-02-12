@@ -152,7 +152,10 @@
           if (!isQuerying) {
             $(this).hide();
 
-            console.log("e", e);
+            const { currentTarget } = e;
+            const { innerText } = currentTarget;
+
+            console.log("innerText", innerText);
 
             var paged = getQueryVars("paged");
             paged++;
