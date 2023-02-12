@@ -1,0 +1,163 @@
+.page-template-portfolio-parallel-scroll-showcase {
+	.billey-main-swiper {
+		margin-bottom: 20px;
+	}
+
+	.slide-width-1 {
+		width: 290px;
+	}
+
+	.slide-width-2 {
+		width: 560px;
+	}
+
+	.page-content {
+		> .row {
+			height: 100vh;
+			margin: 0;
+		}
+	}
+
+	&.admin-bar {
+		.page-content {
+			> .row {
+				height: calc(100vh - 32px);
+			}
+		}
+	}
+
+	.site-info {
+		padding: 0;
+	}
+
+	.site-info-wrap {
+		height: 100%;
+		display: flex;
+		align-items: flex-end;
+		background: #f7f7f7;
+	}
+
+	.site-portfolio-sliders {
+		/*
+		display: flex;
+		align-items: center;*/
+		padding-left: 20px;
+		padding-right: 0;
+	}
+
+	.site-info-inner {
+		width: 100%;
+		max-width: 370px;
+		padding: 100px 15px 113px;
+	}
+
+	.site-title {
+		font-size: 50px;
+		line-height: 1.4;
+		margin-bottom: 24px;
+	}
+
+	.site-description {
+		font-size: 16px;
+		line-height: 1.8125;
+	}
+
+	.tm-button-wrapper {
+		width: 100%;
+		margin-top: 46px;
+	}
+
+	.page-footer {
+		position: absolute;
+		bottom: 0;
+		left: 20px;
+		right: 20px;
+
+		> .row {
+			min-height: 120px;
+			padding: 23px 0;
+		}
+	}
+
+	.site-social-networks {
+		.inner {
+			margin-left: -22px;
+			margin-right: -22px;
+		}
+
+		a {
+			padding: 3px 22px;
+			font-size: 16px;
+			font-weight: 300;
+		}
+	}
+
+	.copyright-text {
+		font-size: 15px;
+		line-height: 1.6;
+		text-align: right;
+	}
+
+	// Loop
+	.post-wrapper {
+		height: 100%;
+	}
+
+	.post-thumbnail {
+		height: 100%;
+
+		img {
+			object-fit: cover;
+			height: 100%;
+		}
+	}
+}
+
+@media (min-width: 1600px) {
+	.page-template-portfolio-parallel-scroll-showcase .site-info-inner {
+		padding-left: 45px;
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	.page-template-portfolio-parallel-scroll-showcase {
+		.page-header-inner {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+		}
+
+		.site-info {
+			display: none;
+		}
+
+		.site-portfolio-sliders {
+			padding-left: 0;
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		.page-footer {
+			text-align: center;
+
+			> .row {
+				min-height: 0;
+			}
+		}
+
+		.copyright-text {
+			text-align: center;
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.page-template-portfolio-parallel-scroll-showcase {
+		.slide-width-1 {
+			width: 200px;
+		}
+
+		.slide-width-2 {
+			width: 360px;
+		}
+	}
+}

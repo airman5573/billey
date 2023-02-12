@@ -1,0 +1,109 @@
+.billey-js-chart {
+	&.legends-top {
+		.chart-legends {
+			margin-bottom: 60px;
+		}
+	}
+
+	&.legends-bottom {
+		.chart-legends {
+			margin-top: 60px;
+		}
+	}
+
+	&.legends-left,
+	&.legends-right {
+		.chart-wrap {
+			display: flex;
+			align-items: center;
+
+			.chart-canvas {
+				width: 50%;
+			}
+
+			.chart-legends {
+				width: 50%;
+
+				ul {
+					grid-template-columns: repeat(1, auto);
+					grid-gap: 20px 0;
+				}
+			}
+		}
+	}
+
+	&.legends-left {
+		.chart-legends {
+			padding-right: 10%;
+		}
+	}
+
+	&.legends-right {
+		.chart-legends {
+			padding-left: 10%;
+		}
+	}
+
+	.chart-legends {
+		ul {
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+			display: grid;
+			grid-template-columns: repeat(2, auto);
+			grid-gap: 10px 20px;
+			justify-content: space-between;
+		}
+
+		li {
+			@extend %NormalTransition;
+			position: relative;
+			font-size: 15px;
+			font-weight: 500;
+			padding-left: 28px;
+
+			&.hidden {
+				text-decoration: line-through;
+			}
+
+			span {
+				position: absolute;
+				top: 4px;
+				left: 0;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				display: inline-block;
+			}
+		}
+	}
+
+	&.legends-clickable {
+		.chart-legends {
+			li {
+				cursor: pointer;
+				user-select: none;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(xs) {
+	.billey-js-chart {
+		&.legends-left,
+		&.legends-right {
+			.chart-wrap {
+				display: block;
+
+				.chart-canvas,
+				.chart-legends {
+					width: 100%;
+				}
+
+				.chart-legends {
+					padding: 40px 0 0;
+				}
+			}
+		}
+	}
+}

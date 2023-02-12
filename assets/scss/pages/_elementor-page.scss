@@ -1,0 +1,26 @@
+.elementor-page {
+	.page-content {
+		> .container {
+			padding: 0 !important;
+		}
+	}
+}
+
+body {
+	&.elementor-archive-page,
+	&.elementor-page {
+		.page-content {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	&.elementor-archive-page {
+		&.page-has-sidebar {
+			.page-content {
+				margin-top: 100px;
+				margin-bottom: 100px;
+			}
+		}
+	}
+}

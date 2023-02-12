@@ -1,0 +1,32 @@
+.header-08 {
+	.page-header-inner {
+		padding-top: 9px;
+		padding-bottom: 9px;
+	}
+
+	.header-wrap {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	.branding {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.page-navigation {
+		flex-grow: 1;
+	}
+
+	.header-right {
+		flex-shrink: 0;
+	}
+
+	.mobile-menu & {
+		.branding {
+			flex-grow: 1;
+		}
+	}
+}

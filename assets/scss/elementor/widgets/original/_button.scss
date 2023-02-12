@@ -1,0 +1,35 @@
+.elementor {
+	.elementor-widget-button {
+		.elementor-button {
+			border-radius: 0;
+		}
+	}
+}
+
+.elementor-element {
+	.elementor-button.elementor-button {
+		border-radius: 0;
+	}
+
+	.elementor-button {
+		&.elementor-size-xs {
+			font-size: 11px;
+		}
+
+		&.elementor-size-sm {
+			font-size: 12px;
+		}
+
+		&.elementor-size-md {
+			font-size: 13px;
+		}
+
+		&.elementor-size-lg {
+			font-size: 15px;
+		}
+
+		&.elementor-size-xl {
+			font-size: 17px;
+		}
+	}
+}

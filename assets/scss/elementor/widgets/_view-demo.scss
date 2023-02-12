@@ -1,0 +1,29 @@
+.tm-view-demo {
+	text-align: center;
+
+	.billey-box {
+		position: relative;
+		display: block;
+	}
+
+	.image {
+		box-shadow: 0 10px 80px rgba(0, 0, 0, .08);
+		border-radius: 8px;
+
+		> img {
+			width: 100%;
+		}
+	}
+
+	.heading {
+		font-size: 24px;
+		margin: 48px 0 0;
+	}
+
+	.badge {
+		position: absolute;
+		top: -15px;
+		right: -15px;
+		z-index: 2;
+	}
+}

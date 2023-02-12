@@ -1,0 +1,55 @@
+.rtl {
+	.course-rating {
+		.average-rating {
+			margin-left: 70px;
+			margin-right: 0;
+		}
+
+		.rating-rated-item {
+			.rating-count {
+				text-align: left;
+				margin: 0 5px 0 0;
+			}
+
+			.rating-point {
+				margin: 0 0 0 22px;
+			}
+		}
+	}
+
+	#course-reviews {
+		.course-reviews-list {
+
+			> li {
+				padding-right: 5px;
+				padding-left: 20px;
+			}
+
+			.review-author {
+				float: right;
+				margin-left: 20px;
+				margin-right: 0;
+			}
+
+			.review-content {
+				margin-left: 0;
+				margin-right: 125px;
+			}
+
+			.review-stars-rated {
+				right: auto;
+				left: 0;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.rtl {
+		.course-rating {
+			.average-rating {
+				margin-left: 30px;
+			}
+		}
+	}
+}

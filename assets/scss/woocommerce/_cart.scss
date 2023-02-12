@@ -1,0 +1,295 @@
+.woocommerce-cart {
+	.shop_table {
+		th {
+			padding: 20px 0;
+			line-height: 1.2;
+
+			&.product-thumbnail {
+				width: 105px;
+			}
+		}
+
+		th, td {
+			border: 0;
+			background: none;
+			text-align: left;
+			padding-right: 10px !important;
+		}
+
+		tr {
+			border-bottom: 1px solid #ededed;
+		}
+
+		th {
+			font-size: 15px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 1.38px;
+			color: #111 !important;
+		}
+
+		td {
+			padding: 20px 0;
+		}
+
+		label {
+			display: none;
+			font-size: 15px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 1.07px;
+			vertical-align: middle;
+		}
+
+		.product-title {
+			font-size: 16px;
+			margin-bottom: 0;
+		}
+
+		.actions {
+			padding-bottom: 10px;
+			padding-right: 0 !important;
+
+			input,
+			.button {
+				margin-bottom: 10px;
+			}
+		}
+
+		.actions-wrap {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.actions-buttons {
+			flex-shrink: 0;
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.coupon-wrap {
+			flex-grow: 1;
+		}
+
+		.coupon {
+			max-width: 500px;
+			display: flex;
+			align-items: flex-start;
+
+			label {
+				display: none;
+			}
+
+			.input-text {
+				margin: 0 10px 10px 0;
+				flex-grow: 1;
+			}
+
+			.button {
+				flex-shrink: 0;
+				margin: 0 10px 10px 0;
+			}
+		}
+
+		.product-remove {
+			text-align: right;
+			padding-right: 0 !important;
+
+			.tm-button {
+				font-size: 13px;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: 1.38px;
+				color: #111 !important;
+			}
+		}
+	}
+
+	.cart {
+		.product-thumbnail {
+			img {
+				width: 80px;
+			}
+		}
+	}
+
+	.cart-collaterals {
+		margin-top: 90px;
+
+		th {
+			width: 170px;
+		}
+
+		.shop_table {
+			th, td {
+				padding: 10px 0;
+			}
+		}
+
+		.woocommerce-shipping-methods {
+			margin: 0;
+		}
+
+		.woocommerce-shipping-destination {
+			margin: 0 0 5px;
+		}
+
+		.order-total {
+			.amount {
+				font-size: 20px;
+			}
+		}
+	}
+
+	.cart_totals {
+		width: 100%;
+		max-width: 600px;
+	}
+
+	.empty-cart-messages {
+		text-align: center;
+	}
+
+	.empty-cart-icon {
+		font-size: 80px;
+		line-height: 1;
+		margin-bottom: 30px;
+	}
+
+	.empty-cart-heading {
+		font-size: 36px;
+		font-weight: 400;
+	}
+
+	.return-to-shop {
+		margin-top: 30px;
+		text-align: center;
+	}
+}
+
+.shipping-calculator-button {
+	font-size: 13px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1.38px;
+	line-height: 1.5;
+	display: inline-block;
+}
+
+.woocommerce {
+	a.remove {
+		display: inline-block;
+		font-size: 20px;
+		height: 1em;
+		width: 1em;
+		text-align: center;
+		line-height: 1;
+		border-radius: 100%;
+		color: #d8d8d8;
+		text-decoration: none;
+		border: 0;
+
+		&:hover {
+			color: #222;
+		}
+	}
+}
+
+.shipping-calculator-form {
+	margin-top: 10px;
+}
+
+.shipping-calculator-button {
+	@extend %LinkTransition;
+}
+
+.btn-empty-cart {
+	margin-right: 10px;
+}
+
+.woocommerce-shipping-methods {
+	padding: 0;
+	margin: 0 0 20px;
+	list-style-type: none;
+}
+
+@include media-breakpoint-down(sm) {
+	.woocommerce-page {
+		table.shop_table {
+			thead {
+				display: none;
+			}
+
+			tbody,
+			th,
+			td,
+			tr {
+				display: block;
+			}
+
+			tr {
+				padding-bottom: 30px;
+				margin-bottom: 30px;
+			}
+
+			td {
+				padding: 0 !important;
+			}
+
+			label {
+				display: inline-block;
+			}
+
+			.cart_item {
+				position: relative;
+				padding-left: 110px;
+				min-height: 90px;
+			}
+
+			.product-quantity {
+				margin-top: 10px;
+			}
+
+			.product-subtotal {
+				margin: 10px 0;
+			}
+
+			.product-thumbnail {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			.product-remove {
+				text-align: left;
+			}
+		}
+	}
+
+	.woocommerce-cart {
+		.cart-collaterals {
+			margin: 40px 0 0;
+		}
+	}
+}
+
+@include media-breakpoint-down(xs) {
+	.woocommerce-cart {
+		.shop_table {
+			.actions-wrap {
+				display: block;
+			}
+
+			.coupon {
+				display: block;
+				max-width: 100%;
+			}
+
+			.actions-buttons {
+				display: block;
+			}
+		}
+
+	}
+}

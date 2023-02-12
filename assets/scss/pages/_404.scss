@@ -1,0 +1,69 @@
+.error404 {
+	.page-404-content {
+		text-align: center;
+
+		> .container {
+			> .row {
+				padding-top: 100px;
+				padding-bottom: 92px;
+			}
+		}
+	}
+
+	.error-image {
+		margin-bottom: 50px;
+
+		img {
+			max-width: 90%;
+		}
+	}
+
+	.error-404-title {
+		margin: 0;
+	}
+
+	.error-404-text {
+		max-width: 560px;
+		margin: 0 auto;
+	}
+
+	.error-buttons {
+		margin: 19px -10px 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.tm-button-wrapper {
+			padding: 8px;
+		}
+
+		.tm-button {
+			min-width: 198px;
+		}
+	}
+}
+
+@include elementor-breakpoint-down(md) {
+	.error404 {
+		.error-404-title {
+			font-size: 38px !important;
+		}
+	}
+}
+
+@include elementor-breakpoint-down(sm) {
+	.error404 {
+		.page-404-content > .container > .row {
+			padding-top: 50px;
+			padding-bottom: 42px;
+		}
+
+		.error-404-title {
+			font-size: 30px !important;
+		}
+
+		.error-image {
+			margin-bottom: 30px;
+		}
+	}
+}

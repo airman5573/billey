@@ -1,0 +1,49 @@
+.page-title-bar {
+	position: relative;
+
+	.heading {
+		margin-bottom: 0;
+	}
+}
+
+.page-title-bar-overlay {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.page-title-bar-inner {
+	border-bottom-style: solid;
+}
+
+.insight_core_breadcrumb {
+	margin: 0;
+	padding: 0;
+
+	li {
+		display: inline-block;
+
+		+ li {
+			position: relative;
+			padding-left: 32px;
+
+			&:before {
+				content: '';
+				position: absolute;
+				left: 12px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 5px;
+				height: 5px;
+				background: currentColor;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	a {
+		@extend %LinkTransition;
+	}
+}

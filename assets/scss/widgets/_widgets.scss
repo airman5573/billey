@@ -1,0 +1,106 @@
+.page-content {
+	.widget-title {
+		font-size: 20px;
+		margin-bottom: 20px;
+		padding-bottom: 11px;
+		border-bottom: 1px solid #eee;
+	}
+
+	.widget {
+		+ .widget {
+			margin: 49px 0 0;
+		}
+	}
+}
+
+.page-sidebar {
+	.page-sidebar-inner {
+		height: 100%;
+	}
+
+	.page-sidebar-content {
+		border: 1px solid #eee;
+		padding: 30px 30px 40px;
+		background: #fff;
+	}
+}
+
+.widget {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+
+	li {
+		+ li {
+			margin-top: 9px;
+		}
+	}
+}
+
+.insight-core-bmw,
+.widget_nav_menu,
+.widget_pages,
+.widget_categories,
+.widget_product_categories {
+	ul {
+		ul {
+			margin-left: 10px;
+		}
+	}
+}
+
+.insight-core-bmw,
+.widget_nav_menu {
+	a:empty {
+		display: none;
+	}
+
+	.sub-menu {
+		margin-top: 14px;
+	}
+}
+
+.widget_pages,
+.widget_categories,
+.widget_product_categories {
+	.children {
+		margin-top: 14px;
+	}
+}
+
+.widget_recent_comments {
+	.comment-author-link {
+		position: relative;
+		padding-left: 24px;
+
+		&:before {
+			@extend %FontAwesomeLight;
+			content: '\f27a';
+			font-size: 14px;
+			line-height: 0;
+			position: absolute;
+			top: 12px;
+			left: 0;
+		}
+	}
+}
+
+.widget_recent_entries {
+	.post-date {
+		margin-top: 6px;
+		display: block;
+		font-size: 14px;
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.page-content {
+		.widget {
+			+ .widget {
+				margin: 40px 0 0;
+			}
+		}
+	}
+}

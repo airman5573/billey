@@ -1,0 +1,450 @@
+.post-password-form {
+	input[type='submit'] {
+		display: block;
+		margin: 30px auto 0;
+	}
+}
+
+.single-post {
+	.blog-modern-header {
+		background: #000;
+		padding: 265px 0 120px;
+		color: #fff;
+
+		.entry-header {
+			border: 0;
+		}
+
+		.entry-title {
+			color: #fff;
+		}
+
+		a {
+			color: #fff;
+		}
+	}
+
+	.page-content {
+		margin-bottom: 120px !important;
+	}
+
+	.page-title-bar {
+		+ .page-content {
+			margin-top: 85px;
+		}
+	}
+
+	.page-main-content {
+		> .post-no-thumbnail {
+			&.format-standard,
+			&.format-image {
+				.entry-header {
+					border-bottom: 1px solid #eee;
+					padding-bottom: 39px;
+					margin-bottom: 38px;
+				}
+			}
+		}
+	}
+
+	.entry-header {
+		text-align: center;
+		margin-bottom: 53px;
+	}
+
+	.entry-post-feature {
+		line-height: 0;
+		margin-top: 36px;
+
+		&.tm-popup-video .video-overlay {
+			background: rgba(0, 0, 0, .5);
+		}
+
+		&.post-gallery {
+			.swiper-nav-button {
+				background: #fff;
+				border-color: #fff;
+
+				&:hover {
+					background: transparent;
+				}
+
+				&.swiper-button-prev {
+					margin-left: 20px;
+				}
+
+				&.swiper-button-next {
+					margin-right: 20px;
+				}
+			}
+		}
+
+		&.post-video,
+		&.post-link,
+		&.post-quote {
+			margin-bottom: 46px;
+		}
+
+		&.post-audio {
+			margin-bottom: 38px;
+
+			iframe {
+				width: 100%;
+				height: 200px;
+				border: 0;
+			}
+		}
+
+		&.post-link {
+			padding: 82px 100px;
+			background: #f7fbfe;
+			font-size: 24px;
+			line-height: 1.5;
+
+			a {
+				word-wrap: break-word;
+			}
+		}
+
+		&.post-quote {
+			position: relative;
+			text-align: center;
+		}
+
+		.post-quote-content {
+			position: relative;
+			padding: 48px 40px;
+
+			.quote-icon {
+				color: #fff;
+				font-size: 26px;
+				margin-bottom: 35px;
+			}
+		}
+
+		.post-quote-text {
+			margin-bottom: 26px;
+			color: #fff;
+			font-size: 24px;
+			line-height: 1.375;
+		}
+
+		.post-quote-name {
+			font-size: 18px;
+			color: #fff;
+
+			a {
+				color: inherit;
+			}
+		}
+	}
+
+	.entry-content {
+		@extend %clearfix;
+		margin-bottom: 30px;
+	}
+
+	.entry-post-meta {
+		font-size: 16px;
+		margin: 0 -8px;
+
+		> div {
+			position: relative;
+			display: inline-block;
+			padding: 0 8px;
+
+			+ div {
+				padding-left: 15px;
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 11px;
+					left: 0;
+					width: 4px;
+					height: 4px;
+					background: #ddd;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		a {
+			@extend %LinkTransition;
+		}
+	}
+
+	.entry-author-meta {
+		img {
+			width: 32px;
+			vertical-align: middle;
+			margin-right: 6px;
+			border-radius: 50%;
+		}
+	}
+
+	.meta-icon {
+		font-size: 14px;
+		margin-right: 7px;
+	}
+
+	.entry-wrapper {
+		margin-bottom: 87px;
+	}
+
+	.entry-footer {
+		border-top: 1px solid #eee;
+		padding-top: 38px;
+		margin-top: 47px;
+	}
+
+	.entry-post-tags {
+		.tag-label {
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 18px;
+			text-transform: uppercase;
+			margin: 0 12px 0 0;
+		}
+
+		.tagcloud {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		a {
+			@extend %LinkTransition;
+			color: inherit;
+		}
+	}
+}
+
+.single-blog-style-standard {
+	&.page-has-no-sidebar {
+		.page-content {
+			> .container {
+				max-width: 800px;
+			}
+		}
+
+		.comment-form {
+			.form-submit {
+				text-align: center;
+			}
+		}
+	}
+}
+
+.single-blog-style-modern {
+	.page-content {
+		margin-bottom: 0;
+	}
+
+	.entry-post-feature {
+		margin: -200px 0 80px;
+	}
+
+	.post-pagination-next {
+		background: #000;
+		color: #fff;
+		padding: 113px 0 105px;
+		text-align: center;
+
+		a {
+			display: inline-block;
+			max-width: 380px;
+			color: #fff;
+		}
+
+		.nav-desc {
+			margin-bottom: 27px;
+		}
+
+		.nav-post-title {
+			font-size: 24px;
+			line-height: 1.375;
+			color: #fff;
+			margin-bottom: 41px;
+		}
+
+		.nav-icon {
+			font-size: 24px;
+			color: #fff;
+		}
+	}
+
+	.entry-box-wrapper {
+		background: #f5f5f5;
+		padding-top: 53px;
+		padding-bottom: 200px;
+	}
+
+	.entry-post-share {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 15px;
+
+		.share-label {
+			display: none;
+		}
+
+		.share-list {
+			.inner {
+				margin: 0;
+			}
+
+			a {
+				display: block;
+				width: 70px;
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+				background: #f5f5f5;
+				font-size: 16px;
+				color: #111;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.entry-post-tags {
+		text-align: center;
+	}
+
+	.post-return-archive {
+		position: relative;
+		padding-left: 20px;
+
+		&:before {
+			@extend %FontAwesomeSolid;
+			content: '\f060';
+			font-size: 12px;
+			margin-right: 6px;
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+	}
+}
+
+.related-posts {
+	.related-title {
+		margin-top: 50px;
+		margin-bottom: 27px;
+		font-size: 24px;
+	}
+}
+
+.entry-title {
+	font-size: 34px;
+	margin: 0 0 14px;
+	word-wrap: break-word;
+}
+
+.entry-post-categories {
+	font-size: 14px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #111;
+
+	a {
+		color: inherit;
+		font-size: inherit;
+	}
+}
+
+.entry-author {
+	margin: 50px 0 0;
+	padding: 50px 41px 40px;
+	border: 1px solid #eee;
+	background: #fff;
+
+	.author-info {
+		display: flex;
+	}
+
+	.author-avatar {
+		flex-shrink: 0;
+		min-width: 108px;
+		width: 108px;
+
+		img {
+			width: 100%;
+			border-radius: 100%;
+		}
+	}
+
+	.author-description {
+		margin-left: 30px;
+	}
+
+	.author-name {
+		margin-bottom: 13px;
+		font-size: 15px;
+		text-transform: uppercase;
+	}
+
+	.author-biographical-info {
+		margin-top: 15px;
+		font-size: 16px;
+	}
+
+	.author-social-networks {
+		.inner {
+			@extend %clearfix;
+			display: inline-block;
+			margin: 13px -9px 0;
+		}
+
+		a {
+			display: block;
+			float: left;
+			padding: 6px 10px;
+			font-size: 16px;
+			line-height: 1;
+		}
+	}
+}
+
+.entry-post-share {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	.share-label {
+		font-size: 18px;
+		margin: 0 28px 0 0;
+	}
+
+	.share-list {
+		.inner {
+			margin-left: -10px;
+			margin-right: -10px;
+		}
+
+		a {
+			display: inline-block;
+			font-size: 18px;
+			line-height: 1;
+			padding: 0 10px;
+		}
+	}
+}
+
+@include elementor-breakpoint-down(md) {
+	.entry-title {
+		font-size: 30px;
+	}
+}
+
+@include elementor-breakpoint-down(sm) {
+	.entry-title {
+		font-size: 26px;
+	}
+}

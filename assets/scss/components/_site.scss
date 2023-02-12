@@ -1,0 +1,26 @@
+.boxed {
+	margin: 0 auto;
+	max-width: 1200px;
+	box-shadow: 0 0 30px rgba(0, 0, 0, .06);
+}
+
+.site {
+	@extend %NormalTransition;
+	overflow: hidden;
+}
+
+.page-sidebar,
+.page-main-content {
+	position: relative;
+	min-height: 1px;
+	padding-left: 15px;
+	padding-right: 15px;
+	width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+	.site-bg-pattern-cross-line {
+		background: url(assets/images/bg-pattern-cross-line.png) repeat-y 0 0,
+		url(assets/images/bg-pattern-cross-line.png) repeat-y 100% 0;
+	}
+}

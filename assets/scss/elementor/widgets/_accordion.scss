@@ -1,0 +1,142 @@
+.billey-accordion {
+  .accordion-section {
+	 &.active {
+		> .accordion-header {
+		  .closed-icon {
+			 display: block;
+		  }
+
+		  .opened-icon {
+			 display: none;
+		  }
+		}
+	 }
+  }
+
+  .accordion-header {
+	 display: flex;
+	 align-items: center;
+	 min-height: 54px;
+	 cursor: pointer;
+	 color: #111;
+  }
+
+  .accordion-title-wrapper {
+	 flex-grow: 1;
+  }
+
+  .accordion-title {
+	 @extend %NormalTransition;
+	 display: inline-block;
+	 margin-bottom: 0;
+	 color: inherit;
+	 font-size: 18px;
+	 line-height: 1.34;
+  }
+
+  .accordion-icons {
+	 font-size: 16px;
+	 color: inherit;
+	 flex-shrink: 0;
+	 margin-left: 10px;
+
+	 .closed-icon {
+		display: none;
+	 }
+  }
+
+  .accordion-icon {
+	 @extend %NormalTransition;
+  }
+
+  .accordion-content {
+	 display: none;
+	 font-size: 16px;
+	 line-height: 1.75;
+  }
+}
+
+.billey-accordion-style-01 {
+  .billey-accordion {
+	 .accordion-section {
+		border: 1px solid #eee;
+
+		+ .accordion-section {
+		  border-top: 0;
+		}
+	 }
+
+	 .accordion-header {
+		padding: 10px 20px;
+	 }
+
+	 .accordion-content {
+		padding: 15px 20px;
+		border-top: 1px solid #eee;
+	 }
+  }
+}
+
+.billey-accordion-style-02 {
+  .billey-accordion {
+	 .accordion-header {
+		min-height: 80px;
+		border-bottom: 1px solid #eee;
+		padding: 10px 14px 10px 0;
+	 }
+
+	 .accordion-content {
+		padding: 22px 0 33px;
+		border-bottom: 1px solid #eee;
+	 }
+  }
+}
+
+.billey-accordion-style-03 {
+  .billey-accordion {
+	 .accordion-section {
+		+ .accordion-section {
+		  margin: 22px 0 0;
+		}
+	 }
+
+	 .accordion-title {
+		display: inline-block;
+		font-size: 24px;
+		border-bottom: 2px solid currentColor;
+		padding-bottom: 2px;
+	 }
+
+	 .accordion-content {
+		padding: 17px 0 15px;
+	 }
+  }
+}
+
+.billey-accordion-style-rtl {
+
+  .accordion-header {
+	 font-family: Cairo;
+	 font-size: 18px;
+	 font-weight: 600;
+	 text-align: right;
+	 color: #111111;
+	 border-bottom: 1px solid #eeeeee;
+
+  }
+
+  .accordion-content {
+	 padding: 20px 0;
+	 text-align: right;
+	 border-bottom: 1px solid #eeeeee;
+	 font-family: Cairo;
+	 font-size: 18px;
+	 font-weight: 400;
+	 line-height: 1.78;
+	 text-align: right;
+	 color: #888888;
+
+  }
+}
+
+

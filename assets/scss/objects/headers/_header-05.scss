@@ -1,0 +1,37 @@
+.header-05 {
+	.page-header-inner {
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.header-wrap {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	.branding {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.header-right {
+		flex-grow: 1;
+	}
+
+	.mobile-menu & {
+		.branding {
+			flex-grow: 1;
+		}
+	}
+}
+
+@media (min-width: 1600px) {
+	.header-05 {
+		.container-fluid {
+			padding-left: 45px;
+			padding-right: 45px;
+		}
+	}
+}

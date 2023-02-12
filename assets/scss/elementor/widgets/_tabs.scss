@@ -1,0 +1,166 @@
+.elementor-widget-tm-tabs {
+	&.billey-tabs-view-vertical {
+		.billey-tabs-wrapper {
+			width: 25%;
+			flex-shrink: 0;
+		}
+	}
+
+	&.billey-tabs-view-horizontal {
+		.billey-tab-desktop-title {
+			display: table-cell;
+		}
+	}
+
+	.billey-tab-title {
+		cursor: pointer;
+		outline: none;
+		color: #bcbcbc;
+
+		&:hover,
+		&.billey-active {
+			color: #111;
+		}
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.billey-tab-desktop-title {
+		position: relative;
+		padding: 15px 25px;
+		font-weight: bold;
+		line-height: 1;
+	}
+
+	.billey-tab-mobile-title {
+		padding: 10px 10px;
+		cursor: pointer;
+	}
+
+	.billey-tab-content {
+		padding: 20px;
+		display: none;
+	}
+
+	&.billey-tabs-style-01 {
+		.billey-tabs-wrapper {
+			position: relative;
+
+			&:after {
+				content: '';
+				height: 1px;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				background: #eee;
+			}
+		}
+
+		.billey-tab-title {
+			&:before {
+				@extend %NormalTransition;
+				content: '';
+				height: 3px;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: -2px;
+				opacity: 0;
+				z-index: 1;
+			}
+
+			&.billey-active {
+				&:before {
+					opacity: 1;
+				}
+			}
+		}
+
+		.billey-tab-mobile-title {
+			position: relative;
+			text-align: center;
+
+			&:after {
+				content: '';
+				height: 1px;
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				background: #eee;
+			}
+		}
+
+		&.billey-tabs-view-horizontal {
+			.billey-tabs-wrapper {
+				display: flex;
+				justify-content: center;
+			}
+
+			.billey-tab-desktop-title {
+				position: relative;
+				padding: 14px 50px;
+			}
+
+			.billey-tab-content {
+				padding: 50px 0 0;
+			}
+		}
+
+		&.billey-tabs-view-vertical {
+			.billey-tabs-wrapper {
+				&:after {
+					height: 100%;
+					width: 1px;
+					left: auto;
+					right: 0;
+				}
+			}
+		}
+
+		.billey-tab-title {
+			font-size: 20px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.billey-tabs {
+		.billey-tabs-wrapper {
+			display: none !important;
+		}
+
+		.billey-tab-content {
+			padding: 10px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.elementor-widget-tm-tabs {
+		&.billey-tabs-view-vertical {
+			.billey-tabs {
+				display: flex;
+			}
+
+			.billey-tabs-content-wrapper {
+				flex-grow: 1;
+			}
+		}
+
+		.billey-tab-mobile-title {
+			display: none;
+		}
+
+		&.billey-tabs-style-01 {
+			&.billey-tabs-view-horizontal {
+				.billey-tab-content {
+					padding: 100px 20px 0;
+				}
+			}
+		}
+	}
+}

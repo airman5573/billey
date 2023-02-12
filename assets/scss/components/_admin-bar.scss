@@ -1,0 +1,39 @@
+.headroom {
+	&.headroom--not-top {
+		.page-header-inner {
+			top: 0 !important;
+		}
+	}
+}
+
+.admin-bar {
+	.headroom {
+		&.headroom--not-top {
+			.page-header-inner {
+				top: 32px !important;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 782px) {
+	.admin-bar {
+		.headroom {
+			&.headroom--not-top {
+				.page-header-inner {
+					top: 46px !important;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.admin-bar {
+		.headroom.headroom--not-top {
+			.page-header-inner {
+				top: 0 !important;
+			}
+		}
+	}
+}

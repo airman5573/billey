@@ -1,0 +1,93 @@
+.billey-modern-carousel {
+	.swiper-slide {
+		// Fix elementor override style.
+		overflow: visible !important;
+	}
+
+	// Drop shadow for slide content.
+	.swiper-inner {
+		margin: 0 -30px -60px;
+	}
+
+	.swiper-container {
+		padding: 0 30px 60px;
+	}
+
+	.slide-wrapper {
+		display: block;
+		height: 100%;
+
+		&:hover {
+			.slide-image {
+				box-shadow: 0 60px 40px -40px rgba(51, 51, 51, .41);
+			}
+		}
+	}
+
+	.slide-image {
+		@extend %NormalTransition;
+		position: relative;
+		height: 100%;
+
+		img {
+			object-fit: cover;
+			height: 100%;
+		}
+	}
+
+	.slide-overlay {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50%;
+		background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%);
+	}
+
+	.slide-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.slide-layers {
+		padding: 30px 35px 38px;
+	}
+
+	.title {
+		font-size: 22px;
+		line-height: 1.46;
+		color: #fff;
+		margin-bottom: 0;
+	}
+
+	.slide-tags {
+		margin-bottom: 10px;
+	}
+
+	.slide-tag {
+		display: inline-block;
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1.4;
+		text-transform: uppercase;
+		letter-spacing: 1.38px;
+		color: #fff;
+		padding: 6px 13px;
+		margin-bottom: 5px;
+	}
+
+	.description-wrap {
+		margin-top: 14px;
+	}
+
+	.description {
+		font-size: 16px;
+		line-height: 1.75;
+		color: #fff;
+	}
+}

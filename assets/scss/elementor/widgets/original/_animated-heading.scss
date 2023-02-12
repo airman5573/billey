@@ -1,0 +1,17 @@
+.elementor-widget-animated-headline {
+	.elementor-headline {
+		display: block;
+		margin-bottom: 0;
+	}
+}
+/**
+ * Fix Elementor pro 2.8.4
+ */
+.elementor-headline .elementor-headline-plain-text:first-of-type:after,
+.elementor-headline .elementor-headline-plain-text:last-of-type:before {
+	display: none !important;
+}
+
+.elementor-headline--style-rotate .elementor-headline-dynamic-wrapper {
+	overflow: visible !important;
+}

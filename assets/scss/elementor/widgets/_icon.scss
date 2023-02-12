@@ -1,0 +1,161 @@
+.billey-icon-wrap {
+	line-height: 0;
+}
+
+.billey-icon-view {
+	display: inline-block;
+	font-size: 60px;
+}
+
+.billey-icon {
+	display: inline-block;
+	text-align: center;
+	font-size: 60px;
+	line-height: 1;
+	transition: all 0.3s;
+	color: #818a91;
+
+	.icon {
+		@extend %NormalTransition;
+	}
+
+	i,
+	svg {
+		display: block;
+	}
+
+	i {
+		background: inherit;
+	}
+
+	svg {
+		width: 1em;
+		height: 1em;
+	}
+
+	svg.svg-defs-gradient {
+		position: absolute !important;
+		width: 0 !important;
+		height: 0 !important;
+	}
+}
+
+.svg-defs-gradient {
+	.stop-a,
+	.stop-b {
+		@extend %NormalTransition;
+	}
+}
+
+.billey-solid-icon {
+	svg {
+		*[stroke^="#"],
+		*[stroke^="url(#"] {
+			stroke: currentColor;
+		}
+
+		*[fill^="#"],
+		*[fill^="url(#"] {
+			fill: currentColor;
+		}
+	}
+}
+
+.billey-icon-view.second {
+	display: none !important;
+}
+
+.billey-view-stacked {
+	.billey-icon-view {
+		padding: .5em;
+		background-color: #111;
+	}
+
+	.billey-icon-view-inner {
+		position: relative;
+		width: 1em;
+		height: 1em;
+
+		.billey-icon {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+}
+
+.billey-view-bubble {
+	.billey-icon-wrap {
+		position: relative;
+		display: inline-block;
+		padding-bottom: 21px;
+	}
+
+	.billey-icon-view {
+		border-radius: 50%;
+		background-image: linear-gradient(-225deg, rgba(241, 212, 211, .17) 15%, rgba(223, 169, 168, .17) 85%);
+
+		&.first {
+			padding: .84em;
+		}
+
+		&.second {
+			display: inline-block !important;
+			padding: .28em;
+			position: relative;
+			bottom: 21px;
+			margin-left: 22px;
+		}
+
+		.icon {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 0;
+		}
+	}
+}
+
+.billey-view-circle {
+	.billey-icon-wrap {
+		position: relative;
+		display: inline-block;
+		padding-bottom: 21px;
+	}
+
+	.billey-icon-view {
+		border-radius: 50%;
+		background-image: linear-gradient(240deg, rgba(255, 138, 169, .22) 0%, rgba(255, 255, 255, .22) 100%);
+
+		&.first {
+			padding: .5em;
+		}
+
+		.icon {
+			position: absolute;
+			left: 30px;
+			bottom: 0;
+		}
+	}
+}
+
+.billey-view-distortion {
+	.billey-icon-view {
+		position: relative;
+		padding: 40px 33px 0;
+	}
+
+	.billey-icon-view-shape {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+}
+
+.billey-shape-circle {
+	.billey-icon-view {
+		border-radius: 50%;
+	}
+}

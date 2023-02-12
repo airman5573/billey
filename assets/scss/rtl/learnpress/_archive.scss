@@ -1,0 +1,9 @@
+.archive-form-filtering {
+	text-align: left;
+}
+
+@include media-breakpoint-down(sm) {
+	.archive-form-filtering {
+		text-align: right;
+	}
+}

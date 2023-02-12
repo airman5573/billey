@@ -1,0 +1,24 @@
+ol {
+	list-style: decimal;
+}
+
+ul {
+	padding-left: 20px;
+}
+
+ol {
+	padding-left: 30px;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}

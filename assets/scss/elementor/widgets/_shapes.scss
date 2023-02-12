@@ -1,0 +1,30 @@
+.billey-shape {
+	display: inline-block;
+	transform-origin: center;
+
+	.shape {
+		color: #111;
+	}
+
+	svg {
+		height: auto;
+	}
+}
+
+.billey-shape-circle {
+	.shape {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: currentColor;
+	}
+}
+
+.billey-shape-border-circle {
+	.shape {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: 3px solid currentColor;
+	}
+}

@@ -1,0 +1,31 @@
+.rtl {
+	&.profile {
+		#learn-press-profile-header {
+			.profile-name {
+				text-align: right;
+			}
+		}
+	}
+
+	.status-box {
+		padding: 26px 30px 26px 10px;
+
+		&:before {
+			left: auto;
+			right: 0;
+		}
+
+		.status-number {
+			margin: 0 0 0 26px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.rtl {
+		.col-md-push-1 {
+			left: auto;
+			right: 8.33333%;
+		}
+	}
+}

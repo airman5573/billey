@@ -1,0 +1,51 @@
+.header-button-bg-gradient-01 {
+	color: #fff !important;
+
+	&:before {
+		background-image: linear-gradient(-62deg, #e390e5 0%, #f97e8f 89%) !important;
+	}
+
+	&:after {
+		background-image: linear-gradient(-62deg, #f97e8f 0%, #e390e5 89%) !important;
+	}
+}
+
+.header-11 {
+	.page-header-inner {
+		padding-top: 6px;
+		padding-bottom: 6px;
+	}
+
+	.header-wrap {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	.branding {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+	}
+
+	.header-right {
+		flex-grow: 1;
+	}
+
+	.mobile-menu & {
+		.branding {
+			flex-grow: 1;
+		}
+	}
+
+	.tm-button.style-flat.tm-button-xs,
+	.tm-button.style-border.tm-button-xs,
+	.tm-button.style-thick-border.tm-button-xs {
+		min-height: 44px;
+		padding: 0 26px;
+
+		.button-text {
+			font-size: .9em;
+		}
+	}
+}

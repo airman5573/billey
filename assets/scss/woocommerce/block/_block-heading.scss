@@ -1,0 +1,21 @@
+.wp-block-woocommerce-active-filters,
+.wp-block-woocommerce-price-filter,
+.wp-block-woocommerce-attribute-filter {
+	> h3 {
+		font-size: 20px;
+		margin-bottom: 20px;
+		padding-bottom: 11px;
+		border-bottom: 1px solid #eee;
+	}
+
+	.wc-block-checkbox-list,
+	.wc-block-active-filters {
+		margin-bottom: 0;
+	}
+
+	&:not(:empty) {
+		+ div {
+			margin: 49px 0 0;
+		}
+	}
+}

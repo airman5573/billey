@@ -1,0 +1,143 @@
+@mixin normal-transition {
+	transition: all .25s cubic-bezier(.645, .045, .355, 1);
+}
+
+%NormalTransition {
+	@include normal-transition();
+}
+
+@mixin fast-transition {
+	transition: all .15s cubic-bezier(.645, .045, .355, 1);
+}
+
+%FastTransition {
+	@include fast-transition();
+}
+
+@mixin clearfix() {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+%clearfix {
+	@include clearfix;
+}
+
+@mixin absolute {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+%Absolute {
+	@include absolute();
+}
+
+%ContentAbsolute {
+	content: '';
+	@include absolute();
+}
+
+// Mixin for link transition
+
+@mixin link-transition {
+	position: relative;
+
+	&:after {
+		content: '';
+		width: 0;
+		height: 1px;
+		position: absolute;
+		left: auto;
+		right: 0;
+		bottom: 0;
+		transition: width .6s cubic-bezier(.25, .8, .25, 1) 0s;
+		background: currentColor;
+	}
+
+	&:hover {
+		&:after {
+			width: 100%;
+			left: 0;
+			right: auto;
+		}
+	}
+}
+
+%LinkTransition {
+	@include link-transition();
+}
+
+// Mixin for font awesome version 5.x
+
+@mixin FontAwesome {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	line-height: 1;
+}
+
+%FontAwesomeSolid {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 900;
+}
+
+%FontAwesomeLight {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 300;
+}
+
+%FontAwesomeRegular {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 400;
+}
+
+%FontAwesomeBrands {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Brands';
+	font-weight: 400;
+}
+
+%FontAwesomeSolidImportant {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Pro' !important;
+	font-weight: 900;
+}
+
+%FontAwesomeLightImportant {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Pro' !important;
+	font-weight: 300;
+}
+
+%FontAwesomeRegularImportant {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Pro' !important;
+	font-weight: 400;
+}
+
+%FontAwesomeBrandsImportant {
+	@include FontAwesome();
+	font-family: 'Font Awesome 5 Brands' !important;
+	font-weight: 400;
+}
+
+@mixin cursor-close {
+	cursor: url('assets/images/cursor/light-close.png') 16 16, pointer;
+}
+
+%CursorClose {
+	@include cursor-close();
+}
+
