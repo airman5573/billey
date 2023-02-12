@@ -170,8 +170,8 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
 			$response['template'] = $template;
 
-      $p_nav = \Billey_Templates::paging_nav($billey_query);
-      do_action( 'qm/debug',  $p_nav);
+      // $p_nav = \Billey_Templates::paging_nav($billey_query);
+      // do_action( 'qm/debug',  $p_nav);
 
       // pagination도 돌려준다
       // $response['pagination'] = \Billey_Templates::paging_nav($billey_query);
