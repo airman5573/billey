@@ -179,8 +179,8 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
         'total'     => $billey_query->max_num_pages,
         'current'   => max( 1, $query_vars['paged'] ),
         'mid_size'  => 1,
-        'prev_text' => '<span class="fas fa-angle-left"></span>' . esc_html__( 'Prev', 'billey' ),
-        'next_text' => esc_html__( 'Next', 'billey' ) . '<span class="fas fa-angle-right"></span>',
+        'prev_text' => '',
+        'next_text' => '',
         'type'      => 'array',
       );
       $pages = paginate_links( $args );
