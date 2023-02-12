@@ -163,7 +163,7 @@
               setQueryVars("extra_tax_query", currentFilter);
             }
 
-            handlerQuery(true);
+            handlerPaginationQuery();
           }
         });
       }
@@ -216,6 +216,50 @@
           finalOffset = offsetTop - halfWH;
         }, 100);
       });
+    }
+
+    function handlerPaginationQuery(reset) {
+      isQuerying = true;
+
+      setTimeout(function () {
+        var query = jQuery.parseJSON($queryInput.val());
+        var _data = $.param(query);
+
+        $.ajax({
+          url: $billey.ajaxurl,
+          type: "POST",
+          data: _data,
+          dataType: "json",
+          success: function (results) {
+            console.log("results", results);
+
+            if (results.max_num_pages) {
+              setQuery("max_num_pages", results.max_num_pages);
+            }
+
+            if (results.found_posts) {
+              setQuery("found_posts", results.found_posts);
+            }
+
+            if (results.count) {
+              setQuery("count", results.count);
+            }
+
+            var html = results.template;
+            var $newItems = $(html);
+
+            if (reset === true) {
+              $grid.children(".grid-item").remove();
+            }
+
+            $el.trigger("BilleyQueryEnd", [$el, $newItems]);
+
+            handlerQueryEnd();
+
+            isQuerying = false;
+          },
+        });
+      }, 500);
     }
 
     /**
