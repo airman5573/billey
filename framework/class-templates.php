@@ -257,20 +257,16 @@ class Billey_Templates {
 
 		// Set up paginated links.
 
-    $current_page = max( 1, $paged );
 		$args  = array(
-			'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-      'format' => '?paged=%#%',
+			'base'      => $page_num_link,
+			'format'    => $format,
 			'total'     => $query->max_num_pages,
-			'current'   => $current_page,
+			'current'   => max( 1, $paged ),
 			'mid_size'  => 1,
 			'add_args'  => array_map( 'urlencode', $query_args ),
 			'prev_text' => '<span class="fas fa-angle-left"></span>' . esc_html__( 'Prev', 'billey' ),
 			'next_text' => esc_html__( 'Next', 'billey' ) . '<span class="fas fa-angle-right"></span>',
 			'type'      => 'array',
-      'link_attributes' => array(
-        'data-paged' => '%d'
-      ),
 		);
 		$pages = paginate_links( $args );
 

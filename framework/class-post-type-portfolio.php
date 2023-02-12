@@ -173,13 +173,20 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 			$response['template'] = $template;
 
       ob_start();
+
+      $current_page = max( 1, $query_vars['paged'] );
       $args  = array(
+        'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+        'format' => '?paged=%#%',
         'total'     => $billey_query->max_num_pages,
-        'current'   => max( 1, $query_vars['paged'] ),
+        'current'   => $current_page,
         'mid_size'  => 1,
-        'prev_text' => '',
-        'next_text' => '',
+        'prev_text' => '<span class="fas fa-angle-left"></span>' . esc_html__( 'Prev', 'billey' ),
+			  'next_text' => esc_html__( 'Next', 'billey' ) . '<span class="fas fa-angle-right"></span>',
         'type'      => 'array',
+        'link_attributes' => array(
+          'data-paged' => '%d'
+        ),
       );
       $pages = paginate_links( $args );
   
