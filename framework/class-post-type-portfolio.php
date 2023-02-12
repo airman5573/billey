@@ -129,8 +129,6 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 		}
 
 		public function infinite_load() {
-      global $wp_rewrite;
-
 			$source     = isset( $_POST['source'] ) ? $_POST['source'] : '';
 			$query_vars = $_POST['query_vars'];
 
