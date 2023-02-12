@@ -155,14 +155,8 @@
             const { currentTarget } = e;
             let { href } = currentTarget;
 
-            console.log("currentTarget", currentTarget);
-
-            console.log("href", href);
-
-            const urlParams = new URLSearchParams(href);
-            const paged = urlParams.get("paged") || 1;
-
-            alert(paged);
+            let paged = /page\/(\d+)\/?/.exec(href);
+            paged = paged ? parseInt(paged[1]) : 1;
 
             setQueryVars("source", "custom_query");
             setQueryVars("paged", paged);
