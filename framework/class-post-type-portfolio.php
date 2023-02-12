@@ -179,8 +179,8 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
       // Set up paginated links.
 
       $args  = array(
-        'base' => trailingslashit(get_pagenum_link()) . 'paged/%#%/',
-        'format' => 'paged/%#%/',
+        'base' => trailingslashit(get_pagenum_link()) . 'page/%#%/',
+        'format' => 'page/%#%/',
         'total'     => $billey_query->max_num_pages,
         'current'   => max( 1, $paged ),
         'mid_size'  => 1,
