@@ -172,8 +172,9 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
 			$response['template'] = $template;
 
-      ob_start();
 
+
+      ob_start();
       $args  = array(
         'total'     => $billey_query->max_num_pages,
         'current'   => max( 1, $query_vars['paged'] ),
@@ -184,12 +185,12 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
       );
       $pages = paginate_links( $args );
   
-      if ( is_array( $pages ) ) {
-        echo '<ul class="page-pagination">';
-        foreach ( $pages as $page ) {
-          printf( '<li>%s</li>', $page );
-        }
-        echo '</ul>';
+      if ( is_array( $pages ) ) { ?>
+        <ul class="page-pagination"> <?php
+        foreach ( $pages as $page ) { ?>
+          <li><?php echo $page; ?></li> <?php
+        } ?>
+        </ul> <?php
       }
 
       $pagination = ob_get_contents();
