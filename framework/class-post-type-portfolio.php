@@ -176,8 +176,8 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
       $current_page = max( 1, $query_vars['paged'] );
       $args  = array(
-        'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
-        'format' => '?paged=%#%',
+        'base'      => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+        'format'    => '?paged=%#%',
         'total'     => $billey_query->max_num_pages,
         'current'   => $current_page,
         'mid_size'  => 1,
