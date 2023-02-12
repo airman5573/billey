@@ -176,6 +176,7 @@ if ( ! class_exists( 'Billey_Portfolio' ) ) {
 
       ob_start();
       $args  = array(
+        'base'      => $page_num_link = html_entity_decode( get_pagenum_link() ),
         'total'     => $billey_query->max_num_pages,
         'current'   => max( 1, $query_vars['paged'] ),
         'mid_size'  => 1,
